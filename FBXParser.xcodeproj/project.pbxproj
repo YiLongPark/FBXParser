@@ -33,6 +33,7 @@
 		E7595A3322F6C02B00103634 /* PORSElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7595A3122F6C02B00103634 /* PORSElement.cpp */; };
 		E7595A3622F6D38400103634 /* PORSToken.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7595A3422F6D38400103634 /* PORSToken.cpp */; };
 		E7595A3922F6D54500103634 /* PORSProperty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7595A3722F6D54500103634 /* PORSProperty.cpp */; };
+		E7595A422301A00800103634 /* PORSException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7595A402301A00800103634 /* PORSException.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,8 @@
 		E7595A3522F6D38400103634 /* PORSToken.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSToken.hpp; sourceTree = "<group>"; };
 		E7595A3722F6D54500103634 /* PORSProperty.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSProperty.cpp; sourceTree = "<group>"; };
 		E7595A3822F6D54500103634 /* PORSProperty.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSProperty.hpp; sourceTree = "<group>"; };
+		E7595A402301A00800103634 /* PORSException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PORSException.cpp; sourceTree = "<group>"; };
+		E7595A412301A00800103634 /* PORSException.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PORSException.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +136,8 @@
 		7CBA146E22F2B951002E16F3 /* FBXParser */ = {
 			isa = PBXGroup;
 			children = (
+				E7595A402301A00800103634 /* PORSException.cpp */,
+				E7595A412301A00800103634 /* PORSException.hpp */,
 				7C3D88FB22FC1EB50002FC39 /* miniz.c */,
 				7C3D88FC22FC1EB50002FC39 /* miniz.h */,
 				7CBA149A22F2D277002E16F3 /* head3 */,
@@ -314,6 +319,7 @@
 				E7595A3322F6C02B00103634 /* PORSElement.cpp in Sources */,
 				7CBA147F22F2B952002E16F3 /* main.m in Sources */,
 				7CD9DCE822F8435F00BB6BFD /* PORSTakeInfo.cpp in Sources */,
+				E7595A422301A00800103634 /* PORSException.cpp in Sources */,
 				7CBA149522F2B9A2002E16F3 /* PORSFBXImporter.cpp in Sources */,
 				7CD9DCE522F805DE00BB6BFD /* PORSConnection.cpp in Sources */,
 				7CD9DCE222F7FA5600BB6BFD /* PORSOptionalError.cpp in Sources */,
