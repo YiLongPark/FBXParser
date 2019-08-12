@@ -1,0 +1,581 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7C3D88FA22FBFEA20002FC39 /* PORSGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D88F822FBFEA20002FC39 /* PORSGeometry.cpp */; };
+		7C3D88FD22FC1EB50002FC39 /* miniz.c in Sources */ = {isa = PBXBuildFile; fileRef = 7C3D88FB22FC1EB50002FC39 /* miniz.c */; };
+		7C940D1222F91E7D007408B3 /* PORSObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C940D1022F91E7D007408B3 /* PORSObject.cpp */; };
+		7C987B16230135B60006D9E1 /* PORSTokenizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C987B14230135B60006D9E1 /* PORSTokenizer.cpp */; };
+		7C987B19230139410006D9E1 /* PORSParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C987B17230139410006D9E1 /* PORSParser.cpp */; };
+		7C987B2323014BCB0006D9E1 /* PORSUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C987B2123014BCB0006D9E1 /* PORSUtil.cpp */; };
+		7CBA147122F2B951002E16F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA147022F2B951002E16F3 /* AppDelegate.m */; };
+		7CBA147422F2B951002E16F3 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA147322F2B951002E16F3 /* ViewController.mm */; };
+		7CBA147722F2B951002E16F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA147522F2B951002E16F3 /* Main.storyboard */; };
+		7CBA147922F2B952002E16F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA147822F2B952002E16F3 /* Assets.xcassets */; };
+		7CBA147C22F2B952002E16F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA147A22F2B952002E16F3 /* LaunchScreen.storyboard */; };
+		7CBA147F22F2B952002E16F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA147E22F2B952002E16F3 /* main.m */; };
+		7CBA148922F2B952002E16F3 /* FBXParserUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA148822F2B952002E16F3 /* FBXParserUITests.m */; };
+		7CBA149522F2B9A2002E16F3 /* PORSFBXImporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA149322F2B9A2002E16F3 /* PORSFBXImporter.cpp */; };
+		7CBA149922F2C812002E16F3 /* PORSScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA149722F2C812002E16F3 /* PORSScene.cpp */; };
+		7CBA14A022F2D277002E16F3 /* face.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA149B22F2D277002E16F3 /* face.jpg */; };
+		7CBA14A122F2D277002E16F3 /* head.FBX in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA149C22F2D277002E16F3 /* head.FBX */; };
+		7CBA14A222F2D277002E16F3 /* head.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA149D22F2D277002E16F3 /* head.jpg */; };
+		7CBA14A322F2D277002E16F3 /* headeye.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA149E22F2D277002E16F3 /* headeye.jpg */; };
+		7CBA14A422F2D277002E16F3 /* headmouth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA149F22F2D277002E16F3 /* headmouth.jpg */; };
+		7CD9DCE222F7FA5600BB6BFD /* PORSOptionalError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9DCE022F7FA5600BB6BFD /* PORSOptionalError.cpp */; };
+		7CD9DCE522F805DE00BB6BFD /* PORSConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9DCE322F805DE00BB6BFD /* PORSConnection.cpp */; };
+		7CD9DCE822F8435F00BB6BFD /* PORSTakeInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9DCE622F8435F00BB6BFD /* PORSTakeInfo.cpp */; };
+		E7595A3322F6C02B00103634 /* PORSElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7595A3122F6C02B00103634 /* PORSElement.cpp */; };
+		E7595A3622F6D38400103634 /* PORSToken.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7595A3422F6D38400103634 /* PORSToken.cpp */; };
+		E7595A3922F6D54500103634 /* PORSProperty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7595A3722F6D54500103634 /* PORSProperty.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7CBA148522F2B952002E16F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7CBA146422F2B951002E16F3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7CBA146B22F2B951002E16F3;
+			remoteInfo = FBXParser;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7C3D88F822FBFEA20002FC39 /* PORSGeometry.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSGeometry.cpp; sourceTree = "<group>"; };
+		7C3D88F922FBFEA20002FC39 /* PORSGeometry.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSGeometry.hpp; sourceTree = "<group>"; };
+		7C3D88FB22FC1EB50002FC39 /* miniz.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miniz.c; sourceTree = "<group>"; };
+		7C3D88FC22FC1EB50002FC39 /* miniz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miniz.h; sourceTree = "<group>"; };
+		7C940D1022F91E7D007408B3 /* PORSObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSObject.cpp; sourceTree = "<group>"; };
+		7C940D1122F91E7D007408B3 /* PORSObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSObject.hpp; sourceTree = "<group>"; };
+		7C987B14230135B60006D9E1 /* PORSTokenizer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSTokenizer.cpp; sourceTree = "<group>"; };
+		7C987B15230135B60006D9E1 /* PORSTokenizer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSTokenizer.hpp; sourceTree = "<group>"; };
+		7C987B17230139410006D9E1 /* PORSParser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSParser.cpp; sourceTree = "<group>"; };
+		7C987B18230139410006D9E1 /* PORSParser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSParser.hpp; sourceTree = "<group>"; };
+		7C987B2123014BCB0006D9E1 /* PORSUtil.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSUtil.cpp; sourceTree = "<group>"; };
+		7C987B2223014BCB0006D9E1 /* PORSUtil.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSUtil.hpp; sourceTree = "<group>"; };
+		7CBA146C22F2B951002E16F3 /* FBXParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBXParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CBA146F22F2B951002E16F3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7CBA147022F2B951002E16F3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7CBA147222F2B951002E16F3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		7CBA147322F2B951002E16F3 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		7CBA147622F2B951002E16F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7CBA147822F2B952002E16F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7CBA147B22F2B952002E16F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7CBA147D22F2B952002E16F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CBA147E22F2B952002E16F3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7CBA148422F2B952002E16F3 /* FBXParserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FBXParserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CBA148822F2B952002E16F3 /* FBXParserUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBXParserUITests.m; sourceTree = "<group>"; };
+		7CBA148A22F2B952002E16F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CBA149322F2B9A2002E16F3 /* PORSFBXImporter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSFBXImporter.cpp; sourceTree = "<group>"; };
+		7CBA149422F2B9A2002E16F3 /* PORSFBXImporter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSFBXImporter.hpp; sourceTree = "<group>"; };
+		7CBA149722F2C812002E16F3 /* PORSScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSScene.cpp; sourceTree = "<group>"; };
+		7CBA149822F2C812002E16F3 /* PORSScene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSScene.hpp; sourceTree = "<group>"; };
+		7CBA149B22F2D277002E16F3 /* face.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = face.jpg; sourceTree = "<group>"; };
+		7CBA149C22F2D277002E16F3 /* head.FBX */ = {isa = PBXFileReference; lastKnownFileType = file; path = head.FBX; sourceTree = "<group>"; };
+		7CBA149D22F2D277002E16F3 /* head.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = head.jpg; sourceTree = "<group>"; };
+		7CBA149E22F2D277002E16F3 /* headeye.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = headeye.jpg; sourceTree = "<group>"; };
+		7CBA149F22F2D277002E16F3 /* headmouth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = headmouth.jpg; sourceTree = "<group>"; };
+		7CD9DCE022F7FA5600BB6BFD /* PORSOptionalError.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSOptionalError.cpp; sourceTree = "<group>"; };
+		7CD9DCE122F7FA5600BB6BFD /* PORSOptionalError.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSOptionalError.hpp; sourceTree = "<group>"; };
+		7CD9DCE322F805DE00BB6BFD /* PORSConnection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSConnection.cpp; sourceTree = "<group>"; };
+		7CD9DCE422F805DE00BB6BFD /* PORSConnection.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSConnection.hpp; sourceTree = "<group>"; };
+		7CD9DCE622F8435F00BB6BFD /* PORSTakeInfo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSTakeInfo.cpp; sourceTree = "<group>"; };
+		7CD9DCE722F8435F00BB6BFD /* PORSTakeInfo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSTakeInfo.hpp; sourceTree = "<group>"; };
+		E7595A3122F6C02B00103634 /* PORSElement.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSElement.cpp; sourceTree = "<group>"; };
+		E7595A3222F6C02B00103634 /* PORSElement.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSElement.hpp; sourceTree = "<group>"; };
+		E7595A3422F6D38400103634 /* PORSToken.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSToken.cpp; sourceTree = "<group>"; };
+		E7595A3522F6D38400103634 /* PORSToken.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSToken.hpp; sourceTree = "<group>"; };
+		E7595A3722F6D54500103634 /* PORSProperty.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSProperty.cpp; sourceTree = "<group>"; };
+		E7595A3822F6D54500103634 /* PORSProperty.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSProperty.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7CBA146922F2B951002E16F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CBA148122F2B952002E16F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7CBA146322F2B951002E16F3 = {
+			isa = PBXGroup;
+			children = (
+				7CBA146E22F2B951002E16F3 /* FBXParser */,
+				7CBA148722F2B952002E16F3 /* FBXParserUITests */,
+				7CBA146D22F2B951002E16F3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7CBA146D22F2B951002E16F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7CBA146C22F2B951002E16F3 /* FBXParser.app */,
+				7CBA148422F2B952002E16F3 /* FBXParserUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7CBA146E22F2B951002E16F3 /* FBXParser */ = {
+			isa = PBXGroup;
+			children = (
+				7C3D88FB22FC1EB50002FC39 /* miniz.c */,
+				7C3D88FC22FC1EB50002FC39 /* miniz.h */,
+				7CBA149A22F2D277002E16F3 /* head3 */,
+				7CBA146F22F2B951002E16F3 /* AppDelegate.h */,
+				7CBA147022F2B951002E16F3 /* AppDelegate.m */,
+				7CBA147222F2B951002E16F3 /* ViewController.h */,
+				7CBA147322F2B951002E16F3 /* ViewController.mm */,
+				7CBA147522F2B951002E16F3 /* Main.storyboard */,
+				7CBA147822F2B952002E16F3 /* Assets.xcassets */,
+				7CBA147A22F2B952002E16F3 /* LaunchScreen.storyboard */,
+				7CBA147D22F2B952002E16F3 /* Info.plist */,
+				7CBA147E22F2B952002E16F3 /* main.m */,
+				7CBA149322F2B9A2002E16F3 /* PORSFBXImporter.cpp */,
+				7CBA149422F2B9A2002E16F3 /* PORSFBXImporter.hpp */,
+				7CBA149722F2C812002E16F3 /* PORSScene.cpp */,
+				7CBA149822F2C812002E16F3 /* PORSScene.hpp */,
+				E7595A3122F6C02B00103634 /* PORSElement.cpp */,
+				E7595A3222F6C02B00103634 /* PORSElement.hpp */,
+				E7595A3422F6D38400103634 /* PORSToken.cpp */,
+				E7595A3522F6D38400103634 /* PORSToken.hpp */,
+				E7595A3722F6D54500103634 /* PORSProperty.cpp */,
+				E7595A3822F6D54500103634 /* PORSProperty.hpp */,
+				7CD9DCE022F7FA5600BB6BFD /* PORSOptionalError.cpp */,
+				7CD9DCE122F7FA5600BB6BFD /* PORSOptionalError.hpp */,
+				7CD9DCE322F805DE00BB6BFD /* PORSConnection.cpp */,
+				7CD9DCE422F805DE00BB6BFD /* PORSConnection.hpp */,
+				7CD9DCE622F8435F00BB6BFD /* PORSTakeInfo.cpp */,
+				7CD9DCE722F8435F00BB6BFD /* PORSTakeInfo.hpp */,
+				7C940D1022F91E7D007408B3 /* PORSObject.cpp */,
+				7C940D1122F91E7D007408B3 /* PORSObject.hpp */,
+				7C3D88F822FBFEA20002FC39 /* PORSGeometry.cpp */,
+				7C3D88F922FBFEA20002FC39 /* PORSGeometry.hpp */,
+				7C987B14230135B60006D9E1 /* PORSTokenizer.cpp */,
+				7C987B15230135B60006D9E1 /* PORSTokenizer.hpp */,
+				7C987B17230139410006D9E1 /* PORSParser.cpp */,
+				7C987B18230139410006D9E1 /* PORSParser.hpp */,
+				7C987B2123014BCB0006D9E1 /* PORSUtil.cpp */,
+				7C987B2223014BCB0006D9E1 /* PORSUtil.hpp */,
+			);
+			path = FBXParser;
+			sourceTree = "<group>";
+		};
+		7CBA148722F2B952002E16F3 /* FBXParserUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7CBA148822F2B952002E16F3 /* FBXParserUITests.m */,
+				7CBA148A22F2B952002E16F3 /* Info.plist */,
+			);
+			path = FBXParserUITests;
+			sourceTree = "<group>";
+		};
+		7CBA149A22F2D277002E16F3 /* head3 */ = {
+			isa = PBXGroup;
+			children = (
+				7CBA149B22F2D277002E16F3 /* face.jpg */,
+				7CBA149C22F2D277002E16F3 /* head.FBX */,
+				7CBA149D22F2D277002E16F3 /* head.jpg */,
+				7CBA149E22F2D277002E16F3 /* headeye.jpg */,
+				7CBA149F22F2D277002E16F3 /* headmouth.jpg */,
+			);
+			path = head3;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7CBA146B22F2B951002E16F3 /* FBXParser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CBA148D22F2B952002E16F3 /* Build configuration list for PBXNativeTarget "FBXParser" */;
+			buildPhases = (
+				7CBA146822F2B951002E16F3 /* Sources */,
+				7CBA146922F2B951002E16F3 /* Frameworks */,
+				7CBA146A22F2B951002E16F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FBXParser;
+			productName = FBXParser;
+			productReference = 7CBA146C22F2B951002E16F3 /* FBXParser.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7CBA148322F2B952002E16F3 /* FBXParserUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CBA149022F2B952002E16F3 /* Build configuration list for PBXNativeTarget "FBXParserUITests" */;
+			buildPhases = (
+				7CBA148022F2B952002E16F3 /* Sources */,
+				7CBA148122F2B952002E16F3 /* Frameworks */,
+				7CBA148222F2B952002E16F3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7CBA148622F2B952002E16F3 /* PBXTargetDependency */,
+			);
+			name = FBXParserUITests;
+			productName = FBXParserUITests;
+			productReference = 7CBA148422F2B952002E16F3 /* FBXParserUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7CBA146422F2B951002E16F3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Park;
+				TargetAttributes = {
+					7CBA146B22F2B951002E16F3 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					7CBA148322F2B952002E16F3 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 7CBA146B22F2B951002E16F3;
+					};
+				};
+			};
+			buildConfigurationList = 7CBA146722F2B951002E16F3 /* Build configuration list for PBXProject "FBXParser" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7CBA146322F2B951002E16F3;
+			productRefGroup = 7CBA146D22F2B951002E16F3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7CBA146B22F2B951002E16F3 /* FBXParser */,
+				7CBA148322F2B952002E16F3 /* FBXParserUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7CBA146A22F2B951002E16F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CBA147C22F2B952002E16F3 /* LaunchScreen.storyboard in Resources */,
+				7CBA14A322F2D277002E16F3 /* headeye.jpg in Resources */,
+				7CBA14A222F2D277002E16F3 /* head.jpg in Resources */,
+				7CBA14A422F2D277002E16F3 /* headmouth.jpg in Resources */,
+				7CBA147922F2B952002E16F3 /* Assets.xcassets in Resources */,
+				7CBA14A022F2D277002E16F3 /* face.jpg in Resources */,
+				7CBA147722F2B951002E16F3 /* Main.storyboard in Resources */,
+				7CBA14A122F2D277002E16F3 /* head.FBX in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CBA148222F2B952002E16F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7CBA146822F2B951002E16F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C987B19230139410006D9E1 /* PORSParser.cpp in Sources */,
+				E7595A3622F6D38400103634 /* PORSToken.cpp in Sources */,
+				7C3D88FD22FC1EB50002FC39 /* miniz.c in Sources */,
+				7CBA147422F2B951002E16F3 /* ViewController.mm in Sources */,
+				7C987B2323014BCB0006D9E1 /* PORSUtil.cpp in Sources */,
+				7C3D88FA22FBFEA20002FC39 /* PORSGeometry.cpp in Sources */,
+				7C940D1222F91E7D007408B3 /* PORSObject.cpp in Sources */,
+				E7595A3922F6D54500103634 /* PORSProperty.cpp in Sources */,
+				7CBA149922F2C812002E16F3 /* PORSScene.cpp in Sources */,
+				7C987B16230135B60006D9E1 /* PORSTokenizer.cpp in Sources */,
+				E7595A3322F6C02B00103634 /* PORSElement.cpp in Sources */,
+				7CBA147F22F2B952002E16F3 /* main.m in Sources */,
+				7CD9DCE822F8435F00BB6BFD /* PORSTakeInfo.cpp in Sources */,
+				7CBA149522F2B9A2002E16F3 /* PORSFBXImporter.cpp in Sources */,
+				7CD9DCE522F805DE00BB6BFD /* PORSConnection.cpp in Sources */,
+				7CD9DCE222F7FA5600BB6BFD /* PORSOptionalError.cpp in Sources */,
+				7CBA147122F2B951002E16F3 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CBA148022F2B952002E16F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CBA148922F2B952002E16F3 /* FBXParserUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7CBA148622F2B952002E16F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7CBA146B22F2B951002E16F3 /* FBXParser */;
+			targetProxy = 7CBA148522F2B952002E16F3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7CBA147522F2B951002E16F3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7CBA147622F2B951002E16F3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7CBA147A22F2B952002E16F3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7CBA147B22F2B952002E16F3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7CBA148B22F2B952002E16F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7CBA148C22F2B952002E16F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7CBA148E22F2B952002E16F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G583SJY324;
+				INFOPLIST_FILE = FBXParser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.beautyInc.FBXParser.FBXParser;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7CBA148F22F2B952002E16F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G583SJY324;
+				INFOPLIST_FILE = FBXParser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.beautyInc.FBXParser.FBXParser;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7CBA149122F2B952002E16F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G583SJY324;
+				INFOPLIST_FILE = FBXParserUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.beautyInc.FBXParser.FBXParserUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FBXParser;
+			};
+			name = Debug;
+		};
+		7CBA149222F2B952002E16F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G583SJY324;
+				INFOPLIST_FILE = FBXParserUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.beautyInc.FBXParser.FBXParserUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FBXParser;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7CBA146722F2B951002E16F3 /* Build configuration list for PBXProject "FBXParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CBA148B22F2B952002E16F3 /* Debug */,
+				7CBA148C22F2B952002E16F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7CBA148D22F2B952002E16F3 /* Build configuration list for PBXNativeTarget "FBXParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CBA148E22F2B952002E16F3 /* Debug */,
+				7CBA148F22F2B952002E16F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7CBA149022F2B952002E16F3 /* Build configuration list for PBXNativeTarget "FBXParserUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CBA149122F2B952002E16F3 /* Debug */,
+				7CBA149222F2B952002E16F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7CBA146422F2B951002E16F3 /* Project object */;
+}
