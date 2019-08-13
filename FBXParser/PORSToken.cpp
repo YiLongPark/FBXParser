@@ -34,10 +34,16 @@ int64_t PORSToken::toI64()
     return *(int64_t *)mBegin;
 }
 
+int PORSToken::toInt()
+{
+    assert(mEnd - mBegin == sizeof(int));
+    return *(int*)mBegin;
+}
+
 
 bool PORSToken::compareWithString(const string str)
 {
-    const string temp = string(mBegin + 4, mEnd);
+    const string temp = string(mBegin, mEnd);
     if(!temp.compare(str))
     {
         return true;

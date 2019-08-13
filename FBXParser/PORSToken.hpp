@@ -22,6 +22,7 @@ public:
    
     uint64_t toU64();
     int64_t toI64();
+    int toInt();
     bool compareWithString(const string str);
     string toString();
     

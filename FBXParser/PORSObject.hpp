@@ -33,6 +33,7 @@ struct Vector2D
     double x, y;
 };
 
+
 class PORSObject
 {
 public:

@@ -54,8 +54,6 @@ const PORSToken ReadString(Cursor *cursor, bool isLongString)
     
     const string keyString = string(token.mBegin, token.mEnd);
     
-    printf("%s\n", keyString.c_str());
-    
     return token;
 }
 

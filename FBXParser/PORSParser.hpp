@@ -17,6 +17,7 @@
 #include "PORSScene.hpp"
 #include "PORSGeometry.hpp"
 #include "PORSUtil.hpp"
+#include "PORSTexture.hpp"
 
 using namespace std;
 //using namespace Util;

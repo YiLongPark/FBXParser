@@ -14,7 +14,6 @@ double fbxTimeToSeconds(int64_t value)
     return double(value) / 46186158000L;
 }
 
-
 bool parseTakes(const PORSElement &root, PORSScene *scene)
 {
     const PORSElement *takes = PORSUtil::getRequiredElement(root, "Takes");
@@ -82,7 +81,6 @@ bool parseConnections(const PORSElement &root, PORSScene *sence)
         tempConnection.mFrom = coChild->mProperty->mNext->mToken.toU64();
         tempConnection.mTo = coChild->mProperty->mNext->mNext->mToken.toU64();
         
-        
         uint32_t word;
         memcpy(&word, coChild->mProperty->mToken.mBegin, sizeof(uint32_t));
         //uint32_t rr= (uint32_t)coChild->mProperty->mToken.mBegin;
@@ -139,8 +137,55 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
             {
                 obj.reset( new PORSMeshGeometry(*scene, *iter.second.mElement));
             }
+            
         }
+        else if(!str.compare("Texture"))
+        {
+            obj.reset(new PORSTexture(*scene, *iter.second.mElement));
+        }
+        else if(!str.compare("Material"))
+        {
+            
+        }
+        else if(!str.compare("AnimationStack"))
+        {
+            
+        }
+        else if(!str.compare("AnimationLayer"))
+        {
+            
+        }
+        else if(!str.compare("AnimationCurve"))
+        {
+            
+        }
+        else if(!str.compare("AnimationCurveNode"))
+        {
+            
+        }
+        else if(!str.compare("Material"))
+        {
+            
+        }
+        else if(!str.compare("Material"))
+        {
+            
+        }
+        else if(!str.compare("NodeAttribute"))
+        {
+            
+        }
+        else if(!str.compare("LimbNode"))
+        {
+            
+        }
+        else if(!str.compare("Model"))
+        {
+            
+        }
+       
     }
+    
     return true;
 }
 
