@@ -20,6 +20,20 @@ public:
     PORSElement();
     ~PORSElement();
     
+    PORSProperty *getProperty(int index)const
+    {
+        PORSProperty *property = mProperty;
+        for(int i = 0; i < index; i++)
+        {
+            if(!property)
+            {
+                return nullptr;
+            }
+            property = property->mNext;
+        }
+        return property;
+    }
+    
 public:
     PORSToken mIDToken;
     PORSElement *mChild;

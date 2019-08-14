@@ -23,14 +23,12 @@ PORSToken::~PORSToken()
 uint64_t PORSToken::toU64()
 {
     assert(mEnd - mBegin == sizeof(uint64_t));
-    
     return *(uint64_t *)mBegin;
 }
 
 int64_t PORSToken::toI64()
 {
     assert(mEnd - mBegin == sizeof(int64_t));
-    
     return *(int64_t *)mBegin;
 }
 
@@ -40,6 +38,11 @@ int PORSToken::toInt()
     return *(int*)mBegin;
 }
 
+float PORSToken::toFloat()
+{
+    assert(mEnd - mBegin == sizeof(float));
+    return *(float*)mBegin;
+}
 
 bool PORSToken::compareWithString(const string str)
 {

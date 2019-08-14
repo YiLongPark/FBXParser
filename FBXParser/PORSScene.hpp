@@ -18,6 +18,7 @@
 #include "PORSTakeInfo.hpp"
 #include "PORSElement.hpp"
 #include "PORSObject.hpp"
+#include "PORSGlobalSettings.hpp"
 
 using namespace std;
 
@@ -40,5 +41,7 @@ public:
     vector<PORSConnection> mConnection;
     vector<PORSTakeInfo> mTakeInfo;
     unordered_map<uint64_t, LazyObject> mObjectMap;
+    PORSGlobalSettings *mGolbalSettings;
+    
 };
 #endif /* PORSScene_hpp */

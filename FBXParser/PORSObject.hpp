@@ -20,7 +20,6 @@ using namespace std;
 struct Vector3D
 {
     double x, y ,z;
-    
 };
 
 struct Vector4D
@@ -33,6 +32,10 @@ struct Vector2D
     double x, y;
 };
 
+struct Matrix4x4
+{
+    double m[16];
+};
 
 class PORSObject
 {

@@ -18,6 +18,7 @@
 #include "PORSGeometry.hpp"
 #include "PORSUtil.hpp"
 #include "PORSTexture.hpp"
+#include "PORSCluster.hpp"
 
 using namespace std;
 //using namespace Util;

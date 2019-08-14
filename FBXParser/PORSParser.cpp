@@ -163,24 +163,33 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
         {
             
         }
-        else if(!str.compare("Material"))
-        {
-            
-        }
-        else if(!str.compare("Material"))
-        {
-            
-        }
         else if(!str.compare("NodeAttribute"))
         {
+            PORSProperty *classTag = iter.second.mElement->getProperty(2);
             
-        }
-        else if(!str.compare("LimbNode"))
-        {
-            
+            if(classTag)
+            {
+                if(classTag->mToken.compareWithString("LimbNode"))
+                {
+                    
+                }
+            }
         }
         else if(!str.compare("Model"))
         {
+            
+        }
+        else if(!str.compare("Deformer"))
+        {
+            PORSProperty *classTag = iter.second.mElement->getProperty(2);
+            if(classTag->mToken.compareWithString("Cluster"))
+            {
+                obj.reset(new PORSCluster(*scene, *iter.second.mElement));
+            }
+            else if(classTag->mToken.compareWithString("Skin"))
+            {
+                
+            }
             
         }
        
@@ -189,15 +198,23 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
     return true;
 }
 
+void parseGlobalSettings(const PORSElement &root, PORSScene *scene)
+{
+    scene->mGolbalSettings = new PORSGlobalSettings(root);
+}
+
+
 #pragma mark class member functions
 
 PORSParser::PORSParser(const PORSElement &root, PORSScene *scene)
 {
     parseConnections(root, scene);
-    
+
     parseTakes(root, scene);
-    
+
     parseObjects(root, scene);
+    
+    parseGlobalSettings(root, scene);
 }
 
 
