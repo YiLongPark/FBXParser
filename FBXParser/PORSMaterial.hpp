@@ -11,20 +11,23 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <map>
 
 #include "PORSObject.hpp"
 #include "PORSTexture.hpp"
 
 using namespace std;
 
+typedef map<string, const PORSTexture*> TextureMap;
+
 class PORSMaterial: public PORSObject
 {
 public:
-    PORSMaterial();
+    PORSMaterial(const PORSScene &scene, const PORSElement &element);
     ~PORSMaterial();
 public:
     
-    PORSTexture *mTexture;
+    TextureMap *mTexture;
     
 };
 

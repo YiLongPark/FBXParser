@@ -121,6 +121,7 @@ PORSMeshGeometry::PORSMeshGeometry(const PORSScene &scene, const PORSElement &el
 PORSGeometry(scene, element)
 {
     assert(element.mProperty);
+    mType = GEOMETRY;
     
     const PORSElement *vertices_element = PORSUtil::getRequiredElement(element, "Vertices");
     

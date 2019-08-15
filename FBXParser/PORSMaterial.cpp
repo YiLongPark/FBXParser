@@ -7,3 +7,13 @@
 //
 
 #include "PORSMaterial.hpp"
+
+PORSMaterial::PORSMaterial(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
+{
+    mType = MATERIAL;
+}
+
+PORSMaterial::~PORSMaterial()
+{
+    
+}

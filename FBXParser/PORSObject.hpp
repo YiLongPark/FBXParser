@@ -37,6 +37,24 @@ struct Matrix4x4
     double m[16];
 };
 
+enum OjectType
+{
+    ROOT,
+    GEOMETRY,
+    MATERIAL,
+    MESH,
+    TEXTURE,
+    LIMB_NODE,
+    NULL_NODE,
+    NODE_ATTRIBUTE,
+    CLUSTER,
+    SKIN,
+    ANIMATION_STACK,
+    ANIMATION_LAYER,
+    ANIMATION_CURVE,
+    ANIMATION_CURVE_NODE
+};
+
 class PORSObject
 {
 public:
@@ -53,9 +71,15 @@ public:
         return mID;
     }
     
+    OjectType getType()
+    {
+        return mType;
+    }
+    
 protected:
     const PORSElement& mElement;
     const uint64_t mID;
+    OjectType mType;
     
 };
 #endif /* PORSObject_hpp */

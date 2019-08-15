@@ -7,3 +7,14 @@
 //
 
 #include "PORSLimbNode.hpp"
+
+PORSLimbNode::PORSLimbNode(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
+{
+    mType = LIMB_NODE;
+}
+
+PORSLimbNode::~PORSLimbNode()
+{
+    
+}
+

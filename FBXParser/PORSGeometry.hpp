@@ -16,6 +16,7 @@
 #include "PORSElement.hpp"
 #include "PORSScene.hpp"
 #include "PORSUtil.hpp"
+#include "PORSSkin.hpp"
 
 using namespace std;
 
@@ -66,6 +67,8 @@ public:
     vector<Vector4D> mColors;
     vector<Vector3D> mTangents;
     vector<int>  mMertials;
+    
+    const PORSSkin *mSkin = nullptr;
     
     vector<unsigned int> mFaces;
     vector<unsigned int> mMappingCounts;

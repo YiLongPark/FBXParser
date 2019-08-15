@@ -126,6 +126,7 @@ public:
         switch (property.mType)
         {
             case 'd':
+            case 'l':
                 elementSize = 8;
                 break;
             case 'f':

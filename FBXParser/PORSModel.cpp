@@ -7,3 +7,13 @@
 //
 
 #include "PORSModel.hpp"
+
+PORSModel::PORSModel(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
+{
+    mType = MESH;
+}
+
+PORSModel::~PORSModel()
+{
+    
+}

@@ -19,6 +19,13 @@
 #include "PORSUtil.hpp"
 #include "PORSTexture.hpp"
 #include "PORSCluster.hpp"
+#include "PORSSkin.hpp"
+#include "PORSMaterial.hpp"
+#include "PORSAnimationCurve.hpp"
+#include "PORSAnimationStack.hpp"
+#include "PORSLimbNode.hpp"
+#include "PORSModel.hpp"
+#include "PORSToken.hpp"
 
 using namespace std;
 //using namespace Util;

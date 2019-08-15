@@ -16,6 +16,7 @@
 #include "PORSScene.hpp"
 #include "PORSUtil.hpp"
 
+
 using namespace std;
 
 class PORSCluster: public PORSObject
@@ -26,6 +27,7 @@ public:
     
 public:
     PORSObject *mLink;
+
     vector<int> mIndices;
     vector<double> mWeights;
     Matrix4x4 mTransformMatrix;

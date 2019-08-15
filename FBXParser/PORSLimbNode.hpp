@@ -13,13 +13,14 @@
 #include <iostream>
 
 #include "PORSObject.hpp"
+#include "PORSScene.hpp"
 
 using namespace std;
 
 class PORSLimbNode: public PORSObject
 {
 public:
-    PORSLimbNode();
+    PORSLimbNode(const PORSScene &scene, const PORSElement &element);
     ~PORSLimbNode();
     
 public:

@@ -20,6 +20,8 @@
 		7C987B16230135B60006D9E1 /* PORSTokenizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C987B14230135B60006D9E1 /* PORSTokenizer.cpp */; };
 		7C987B19230139410006D9E1 /* PORSParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C987B17230139410006D9E1 /* PORSParser.cpp */; };
 		7C987B2323014BCB0006D9E1 /* PORSUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C987B2123014BCB0006D9E1 /* PORSUtil.cpp */; };
+		7C9F4398230509B3001BCDFF /* PORSAnimationStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C9F4396230509B3001BCDFF /* PORSAnimationStack.cpp */; };
+		7C9F439B23050B84001BCDFF /* PORSAnimationCurve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7C9F439923050B84001BCDFF /* PORSAnimationCurve.cpp */; };
 		7CBA147122F2B951002E16F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA147022F2B951002E16F3 /* AppDelegate.m */; };
 		7CBA147422F2B951002E16F3 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA147322F2B951002E16F3 /* ViewController.mm */; };
 		7CBA147722F2B951002E16F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA147522F2B951002E16F3 /* Main.storyboard */; };
@@ -80,6 +82,10 @@
 		7C987B18230139410006D9E1 /* PORSParser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSParser.hpp; sourceTree = "<group>"; };
 		7C987B2123014BCB0006D9E1 /* PORSUtil.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSUtil.cpp; sourceTree = "<group>"; };
 		7C987B2223014BCB0006D9E1 /* PORSUtil.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSUtil.hpp; sourceTree = "<group>"; };
+		7C9F4396230509B3001BCDFF /* PORSAnimationStack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSAnimationStack.cpp; sourceTree = "<group>"; };
+		7C9F4397230509B3001BCDFF /* PORSAnimationStack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSAnimationStack.hpp; sourceTree = "<group>"; };
+		7C9F439923050B84001BCDFF /* PORSAnimationCurve.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSAnimationCurve.cpp; sourceTree = "<group>"; };
+		7C9F439A23050B84001BCDFF /* PORSAnimationCurve.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSAnimationCurve.hpp; sourceTree = "<group>"; };
 		7CBA146C22F2B951002E16F3 /* FBXParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBXParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CBA146F22F2B951002E16F3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7CBA147022F2B951002E16F3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -211,6 +217,10 @@
 				7C8DBBCA2303F28E00B3926A /* PORSCluster.hpp */,
 				7C8DBBD123042DC800B3926A /* PORSSkin.cpp */,
 				7C8DBBD223042DC800B3926A /* PORSSkin.hpp */,
+				7C9F4396230509B3001BCDFF /* PORSAnimationStack.cpp */,
+				7C9F4397230509B3001BCDFF /* PORSAnimationStack.hpp */,
+				7C9F439923050B84001BCDFF /* PORSAnimationCurve.cpp */,
+				7C9F439A23050B84001BCDFF /* PORSAnimationCurve.hpp */,
 			);
 			path = FBXParser;
 			sourceTree = "<group>";
@@ -348,6 +358,7 @@
 				7C987B2323014BCB0006D9E1 /* PORSUtil.cpp in Sources */,
 				7C3D88FA22FBFEA20002FC39 /* PORSGeometry.cpp in Sources */,
 				7C8DBBCB2303F28E00B3926A /* PORSCluster.cpp in Sources */,
+				7C9F4398230509B3001BCDFF /* PORSAnimationStack.cpp in Sources */,
 				7C940D1222F91E7D007408B3 /* PORSObject.cpp in Sources */,
 				7C8DBBC22303AF8600B3926A /* PORSLimbNode.cpp in Sources */,
 				E7595A3922F6D54500103634 /* PORSProperty.cpp in Sources */,
@@ -358,6 +369,7 @@
 				E7595A3322F6C02B00103634 /* PORSElement.cpp in Sources */,
 				7CBA147F22F2B952002E16F3 /* main.m in Sources */,
 				7CD9DCE822F8435F00BB6BFD /* PORSTakeInfo.cpp in Sources */,
+				7C9F439B23050B84001BCDFF /* PORSAnimationCurve.cpp in Sources */,
 				E7595A422301A00800103634 /* PORSException.cpp in Sources */,
 				7CBA149522F2B9A2002E16F3 /* PORSFBXImporter.cpp in Sources */,
 				7CD9DCE522F805DE00BB6BFD /* PORSConnection.cpp in Sources */,
