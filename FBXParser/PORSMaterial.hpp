@@ -27,7 +27,7 @@ public:
     ~PORSMaterial();
 public:
     
-    TextureMap *mTexture;
+    TextureMap mTexture;
     
 };
 

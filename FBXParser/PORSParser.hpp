@@ -23,9 +23,10 @@
 #include "PORSMaterial.hpp"
 #include "PORSAnimationCurve.hpp"
 #include "PORSAnimationStack.hpp"
-#include "PORSLimbNode.hpp"
+#include "PORSNodeAttribute.hpp"
 #include "PORSModel.hpp"
 #include "PORSToken.hpp"
+#include "PORSRootNode.hpp"
 
 using namespace std;
 //using namespace Util;

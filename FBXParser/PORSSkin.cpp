@@ -13,7 +13,7 @@ PORSSkin::PORSSkin(const PORSScene &scene, const PORSElement &element):PORSObjec
      mType = SKIN;
     
      const PORSElement *linkDeformAcuracy = PORSUtil::getRequiredElement(element, "Link_DeformAcuracy");
-   //  mAccracy = linkDeformAcuracy->mProperty->mToken.toFloat();
+    // mAccracy = linkDeformAcuracy->mProperty->mToken.toFloat();
     
 }
 

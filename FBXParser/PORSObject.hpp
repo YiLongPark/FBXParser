@@ -39,13 +39,14 @@ struct Matrix4x4
 
 enum OjectType
 {
-    ROOT,
+    ROOTNODE,
     GEOMETRY,
     MATERIAL,
     MESH,
     TEXTURE,
     LIMB_NODE,
     NULL_NODE,
+    LIGHT_NODE,
     NODE_ATTRIBUTE,
     CLUSTER,
     SKIN,
@@ -76,10 +77,15 @@ public:
         return mType;
     }
     
+public:
+    const PORSObject *mNodeAttribute;
+    
 protected:
     const PORSElement& mElement;
     const uint64_t mID;
     OjectType mType;
+   
     
 };
+
 #endif /* PORSObject_hpp */
