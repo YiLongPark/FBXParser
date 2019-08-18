@@ -83,6 +83,7 @@ public:
 protected:
     const PORSElement& mElement;
     const uint64_t mID;
+    const string mName;
     OjectType mType;
    
     

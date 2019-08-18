@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <vector>
+#include <map>
 
 #include "PORSObject.hpp"
 #include "PORSScene.hpp"
@@ -32,6 +33,9 @@ public:
     vector<unsigned int> mFlags;
 };
 
+
+typedef map<string, const PORSAnimationCurve*> AnimationCurveMap;
+
 class PORSAnimationCurveNode: public PORSObject
 {
 public:
@@ -41,6 +45,8 @@ public:
 public:
     PORSObject *mBone;
     string mBoneLinkProperty;
+    
+    AnimationCurveMap mAnimationCurve;
 };
 
 #endif /* PORSAnimationCurve_hpp */

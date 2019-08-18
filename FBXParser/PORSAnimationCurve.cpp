@@ -40,12 +40,12 @@ PORSAnimationCurve::PORSAnimationCurve(const PORSScene &scene, const PORSElement
 
 PORSAnimationCurve::~PORSAnimationCurve()
 {
-    mType = ANIMATION_CURVE_NODE;
+    
 }
 
 PORSAnimationCurveNode::PORSAnimationCurveNode(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
 {
-    
+    mType = ANIMATION_CURVE_NODE;
 }
 
 PORSAnimationCurveNode::~PORSAnimationCurveNode()

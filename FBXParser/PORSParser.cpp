@@ -93,6 +93,10 @@ bool parseConnections(const PORSElement &root, PORSScene *sence)
         {
             tempConnection.mType = ConnectionType::OBJECT_PROPERTY;
             tempConnection.mProperty = *coChild->mProperty->mNext->mNext->mNext;
+            
+//            string temp = tempConnection.mProperty.mToken.toString();
+//
+//            printf("%s\n", temp.c_str());
         }
         else
         {
@@ -116,10 +120,6 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
         return false;
     }
     
-    uint64_t UID = 0;   //root node
-    PORSRootNode *rootNode =  new PORSRootNode(*scene, root);
-    scene->mObjectMap[UID] ={&root, rootNode} ;
-    
     const PORSElement *object = objsElement->mChild;
     while (object)
     {
@@ -127,6 +127,7 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
         scene->mObjectMap[id] = {object, nullptr};
         object = object->mSibling;
     }
+    
     
     for(auto iter : scene->mObjectMap)
     {
@@ -215,6 +216,10 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
     
     }
     
+    uint64_t UID = 0;   //添加 root node
+    PORSRootNode *rootNode =  new PORSRootNode(*scene, root);
+    scene->mObjectMap[UID] ={&root, rootNode} ;
+    
     for(const PORSConnection &con : scene->mConnection)
     {
         PORSObject *parent = scene->mObjectMap[con.mTo].mObject;
@@ -233,11 +238,13 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
                 node->mBone = parent;
                 
                 node->mBoneLinkProperty = string(con.mProperty.mToken.mBegin, con.mProperty.mToken.mEnd);
+                
+                printf("%s", node->mBoneLinkProperty.c_str());
             }
             break;
             case NODE_ATTRIBUTE:
             {
-                parent->mNodeAttribute = (PORSAnimationCurveNode *)child;
+               // parent->mNodeAttribute = (PORSAnimationCurveNode *)child;
             }
             break;
                 
@@ -261,6 +268,9 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
                         
                         mesh->mMaterial.push_back((PORSMaterial *) child);
                         break;
+                        
+                        
+                        //是否少了一个AnimCurveNode？
                         
                     default:
                         break;
@@ -332,6 +342,7 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
                 
             }
             break;
+                
             default:
                 break;
         }

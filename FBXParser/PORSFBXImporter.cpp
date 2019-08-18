@@ -64,7 +64,7 @@ PORSScene* ReadFile(const unsigned char *data, int size)
     PORSOptionalError<PORSElement *> root = tokenizer.TokenizeBinary(data, size);
     
     PORSParser parser(*root.getmValue(), scene.get());
-
+    
     return nullptr;
 }
 
@@ -88,3 +88,4 @@ PORSScene* PORSFBXImporter::LoadFBXFile(const char* filePath)  //加载解析FBX
     return NULL;
     
 }
+
