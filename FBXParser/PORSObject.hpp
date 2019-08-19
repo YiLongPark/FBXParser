@@ -37,7 +37,7 @@ struct Matrix4x4
     double m[16];
 };
 
-enum OjectType
+enum ObjectType
 {
     ROOTNODE,
     GEOMETRY,
@@ -72,19 +72,20 @@ public:
         return mID;
     }
     
-    OjectType getType()
+    ObjectType getType() const
     {
         return mType;
     }
     
 public:
     const PORSObject *mNodeAttribute;
-    
+    bool mIsNode;
+   
 protected:
     const PORSElement& mElement;
     const uint64_t mID;
     const string mName;
-    OjectType mType;
+    ObjectType mType;
    
     
 };

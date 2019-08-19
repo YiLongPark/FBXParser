@@ -11,6 +11,7 @@
 PORSRootNode::PORSRootNode(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
 {
     mType = ROOTNODE;
+    mIsNode = true;
 }
 
 PORSRootNode::~PORSRootNode()

@@ -81,10 +81,13 @@ bool parseConnections(const PORSElement &root, PORSScene *sence)
         tempConnection.mFrom = coChild->mProperty->mNext->mToken.toU64();
         tempConnection.mTo = coChild->mProperty->mNext->mNext->mToken.toU64();
         
-        uint32_t word;
-        memcpy(&word, coChild->mProperty->mToken.mBegin, sizeof(uint32_t));
-        //uint32_t rr= (uint32_t)coChild->mProperty->mToken.mBegin;
-        string t = string(coChild->mProperty->mToken.mBegin, coChild->mProperty->mToken.mEnd);
+//        uint32_t word;
+//        memcpy(&word, coChild->mProperty->mToken.mBegin, sizeof(uint32_t));
+//        //uint32_t rr= (uint32_t)coChild->mProperty->mToken.mBegin;
+//        string t = string(coChild->mProperty->mToken.mBegin, coChild->mProperty->mToken.mEnd);
+        printf("from = %llu\n", tempConnection.mFrom);
+        printf("to = %llu\n", tempConnection.mTo);
+        
         if(coChild->mProperty->mToken.compareWithString("OO"))
         {
             tempConnection.mType = ConnectionType::OBJECT_OBJECT;
@@ -95,7 +98,6 @@ bool parseConnections(const PORSElement &root, PORSScene *sence)
             tempConnection.mProperty = *coChild->mProperty->mNext->mNext->mNext;
             
 //            string temp = tempConnection.mProperty.mToken.toString();
-//
 //            printf("%s\n", temp.c_str());
         }
         else
@@ -111,6 +113,60 @@ bool parseConnections(const PORSElement &root, PORSScene *sence)
     return true;
 }
 
+void debugTag(ObjectType type)
+{
+    switch (type) {
+        case ROOTNODE:
+            printf("ROOTNODE\n");
+            break;
+        case GEOMETRY:
+            printf("GEOMETRY\n");
+            break;
+        case MATERIAL:
+            printf("MATERIAL\n");
+            break;
+        case MESH:
+            printf("MESH\n");
+            break;
+        case TEXTURE:
+            printf("TEXTURE\n");
+            break;
+        case LIMB_NODE:
+            printf("LIMB_NODE\n");
+            break;
+        case NULL_NODE:
+            printf("NULL_NODE\n");
+            break;
+        case LIGHT_NODE:
+            printf("LIGHT_NODE\n");
+            break;
+        case NODE_ATTRIBUTE:
+            printf("NODE_ATTRIBUTE\n");
+            break;
+        case CLUSTER:
+            printf("CLUSTER\n");
+            break;
+        case SKIN:
+            printf("SKIN\n");
+            break;
+        case ANIMATION_STACK:
+            printf("ANIMATION_STACK\n");
+            break;
+        case ANIMATION_LAYER:
+            printf("ANIMATION_LAYER\n");
+            break;
+        case ANIMATION_CURVE:
+            printf("ANIMATION_CURVE\n");
+            break;
+        case ANIMATION_CURVE_NODE:
+            printf("ANIMATION_CURVE_NODE\n");
+            break;
+        default:
+            printf("Error！！！！！！！\n");
+            break;
+    }
+}
+
 bool parseObjects(const PORSElement &root, PORSScene *scene)
 {
     const PORSElement *objsElement = PORSUtil::getRequiredElement(root, "Objects");
@@ -121,21 +177,26 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
     }
     
     const PORSElement *object = objsElement->mChild;
+    int count = 0;
     while (object)
     {
         uint64_t id = object->mProperty->mToken.toU64();
         scene->mObjectMap[id] = {object, nullptr};
         object = object->mSibling;
+        count++;
     }
-    
     
     for(auto iter : scene->mObjectMap)
     {
        // const PORSObject *obj = nullptr;
-       std::unique_ptr<const PORSObject> obj;
+        //std::unique_ptr<const PORSObject> obj;
+        PORSObject *obj = NULL;
         
         PORSToken token = iter.second.mElement->mIDToken;
         string str = token.toString();
+        printf("this tag = %s\n", str.c_str());
+        printf("this id = %llu\n", iter.first);
+        
         if(!str.compare("Geometry"))
         {
             PORSProperty *lastProperty = iter.second.mElement->mProperty;
@@ -146,37 +207,41 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
             
             if(lastProperty && lastProperty->mToken.compareWithString("Mesh"))
             {
-                obj.reset( new PORSMeshGeometry(*scene, *iter.second.mElement));
+                obj = new PORSMeshGeometry(*scene, *iter.second.mElement);
+            }
+            else
+            {
+                printf("==============================\n");
             }
             
         }
         else if(!str.compare("Texture"))
         {
-            obj.reset(new PORSTexture(*scene, *iter.second.mElement));
+            obj = new PORSTexture(*scene, *iter.second.mElement);
         }
         else if(!str.compare("Material"))
         {
-            obj.reset(new PORSMaterial(*scene, *iter.second.mElement));
+            obj= new PORSMaterial(*scene, *iter.second.mElement);
         }
         else if(!str.compare("AnimationStack"))
         {
-            obj.reset(new PORSAnimationStack(*scene, *iter.second.mElement));
+            obj=new PORSAnimationStack(*scene, *iter.second.mElement);
         }
         else if(!str.compare("AnimationLayer"))
         {
-            obj.reset(new PORSAnimationLayer(*scene, *iter.second.mElement));
+            obj=new PORSAnimationLayer(*scene, *iter.second.mElement);
         }
         else if(!str.compare("AnimationCurve"))
         {
-            obj.reset(new PORSAnimationCurve(*scene, *iter.second.mElement));
+            obj=new PORSAnimationCurve(*scene, *iter.second.mElement);
         }
         else if(!str.compare("AnimationCurveNode"))
         {
-            obj.reset(new PORSAnimationCurveNode(*scene, *iter.second.mElement));
+            obj=new PORSAnimationCurveNode(*scene, *iter.second.mElement);
         }
         else if(!str.compare("NodeAttribute"))
         {
-            obj.reset(new PORSNodeAttribute(*scene, *iter.second.mElement));
+            obj=new PORSNodeAttribute(*scene, *iter.second.mElement);
             
         }
         else if(!str.compare("Model"))
@@ -186,15 +251,19 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
             
             if(classTag->mToken.compareWithString("Mesh"))
             {
-                obj.reset(new PORSMESH(*scene, *iter.second.mElement));
+                obj=new PORSModel(*scene, *iter.second.mElement);
             }
             else if(classTag->mToken.compareWithString("Null"))
             {
-                obj.reset(new PORSNullNode(*scene, *iter.second.mElement));
+                obj=new PORSNullNode(*scene, *iter.second.mElement);
             }
             else if(classTag->mToken.compareWithString("LimbNode"))
             {
-                obj.reset(new PORSLimbNode(*scene, *iter.second.mElement));
+                obj=new PORSLimbNode(*scene, *iter.second.mElement);
+            }
+            else
+            {
+                printf("++++++++++++++++++++++++++++\n");
             }
             
         }
@@ -203,16 +272,28 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
             PORSProperty *classTag = iter.second.mElement->getProperty(2);
             if(classTag->mToken.compareWithString("Cluster"))
             {
-                obj.reset(new PORSCluster(*scene, *iter.second.mElement));
+                obj=new PORSCluster(*scene, *iter.second.mElement);
             }
             else if(classTag->mToken.compareWithString("Skin"))
             {
-                obj.reset(new PORSSkin(*scene, *iter.second.mElement));
+                obj=new PORSSkin(*scene, *iter.second.mElement);
+            }
+            else
+            {
+                printf("----------------------------\n");
             }
             
         }
+        else
+        {
+            continue;
+        }
         
-        scene->mObjectMap[iter.first].mObject = (PORSObject *)obj.get();
+        if(obj != NULL)
+        {
+           // if(iter.first)
+            scene->mObjectMap[iter.first].mObject = (PORSObject *)obj;
+        }
     
     }
     
@@ -229,17 +310,23 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
         {
             continue;
         }
+
+        debugTag(parent->getType());
         
         switch (child->getType())
         {
             case ANIMATION_CURVE_NODE:
             {
-                PORSAnimationCurveNode *node = (PORSAnimationCurveNode *)child;
-                node->mBone = parent;
-                
-                node->mBoneLinkProperty = string(con.mProperty.mToken.mBegin, con.mProperty.mToken.mEnd);
-                
-                printf("%s", node->mBoneLinkProperty.c_str());
+                if(parent->mIsNode)
+                {
+                    PORSAnimationCurveNode *node = (PORSAnimationCurveNode *)child;
+                    node->mBone = parent;
+                    
+                    node->mBoneLinkProperty = string(con.mProperty.mToken.mBegin, con.mProperty.mToken.mEnd);
+                    
+                    printf("===%s\n", node->mBoneLinkProperty.c_str());
+                }
+              
             }
             break;
             case NODE_ATTRIBUTE:
@@ -247,12 +334,12 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
                // parent->mNodeAttribute = (PORSAnimationCurveNode *)child;
             }
             break;
-                
+
             default:
                 break;
         }
-        
-        
+
+
         switch (parent->getType())
         {
             case MESH:
@@ -261,24 +348,22 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
                 switch (child->getType())
                 {
                     case GEOMETRY:
-                        
+
                         mesh->mGeometry = (PORSMeshGeometry *)child;
                         break;
                     case MATERIAL:
-                        
-                        mesh->mMaterial.push_back((PORSMaterial *) child);
+
+                        mesh->mMaterial.push_back((const PORSMaterial *) child);
                         break;
-                        
-                        
+
                         //是否少了一个AnimCurveNode？
-                        
                     default:
                         break;
                 }
-                
+
             }
             break;
-                
+
             case SKIN:
             {
                 PORSSkin *skin = (PORSSkin *)parent;
@@ -287,10 +372,10 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
                     PORSCluster *cluster = (PORSCluster *)child;
                     skin->mCluster.push_back(cluster);
                 }
-                
+
             }
             break;
-                
+
             case MATERIAL:
             {
                 PORSMaterial *material = (PORSMaterial *)parent;
@@ -298,14 +383,14 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
                 {
                     string textureTag = string(con.mProperty.mToken.mBegin, con.mProperty.mToken.mEnd);
                     printf("material %s", textureTag.c_str());
-                    
+
                     const PORSTexture *texture = (PORSTexture *)child;
                     material->mTexture[textureTag] = texture;
-                    
+
                 }
             }
             break;
-                
+
             case GEOMETRY:
             {
                 PORSMeshGeometry *geometry = (PORSMeshGeometry *)parent;
@@ -315,7 +400,7 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
                 }
             }
             break;
-                
+
             case CLUSTER:
             {
                 PORSCluster *cluster = (PORSCluster *)parent;
@@ -326,23 +411,30 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
 
             }
             break;
-                
+
             case ANIMATION_LAYER:
             {
                 if(child->getType() == ANIMATION_CURVE_NODE)
                 {
                     ((PORSAnimationLayer *)parent)->mCurveNode.push_back((PORSAnimationCurveNode*)child);
                 }
-                
+
             }
             break;
-                
+
             case ANIMATION_CURVE_NODE:
             {
-                
+                PORSAnimationCurveNode *node = (PORSAnimationCurveNode *)parent;
+                if(child->getType() == ANIMATION_CURVE)
+                {
+                    string curveTag = string(con.mProperty.mToken.mBegin, con.mProperty.mToken.mEnd);
+                    node->mAnimationCurve[curveTag] = (PORSAnimationCurve *)child;
+
+                    printf("+++%s\n", curveTag.c_str());
+                }
             }
             break;
-                
+
             default:
                 break;
         }
@@ -375,3 +467,5 @@ PORSParser::~PORSParser()
 {
     
 }
+
+

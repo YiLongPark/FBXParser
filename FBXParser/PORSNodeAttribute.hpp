@@ -52,6 +52,7 @@ public:
     PORSLimbNode(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
     {
         mType = LIMB_NODE;
+        mIsNode = true;
     }
 
     ~PORSLimbNode()
@@ -67,6 +68,7 @@ public:
     PORSLight(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
     {
         mType = LIGHT_NODE;
+        mIsNode = true;
     }
     
     ~PORSLight()
@@ -82,6 +84,7 @@ public:
     PORSNullNode(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
     {
         mType = NULL_NODE;
+        mIsNode = true;
     }
     
     ~PORSNullNode()
@@ -97,6 +100,7 @@ public:
     PORSMESH(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
     {
         mType = MESH;
+        mIsNode = true;
     }
     
     ~PORSMESH()

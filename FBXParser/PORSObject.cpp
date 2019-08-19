@@ -10,7 +10,8 @@
 
 PORSObject::PORSObject(uint64_t id, const PORSElement &element)
 :mElement(element),
- mID(id)
+ mID(id),
+ mIsNode(false)
 {
     
 }

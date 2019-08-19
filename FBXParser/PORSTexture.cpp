@@ -10,7 +10,7 @@
 
 PORSTexture::PORSTexture(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
 {
-    assert(element.mProperty);
+   // assert(element.mProperty);
     
     mType = TEXTURE;
     
