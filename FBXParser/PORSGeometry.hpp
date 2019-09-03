@@ -14,7 +14,7 @@
 
 #include "PORSObject.hpp"
 #include "PORSElement.hpp"
-#include "PORSScene.hpp"
+//#include "PORSScene.hpp"
 #include "PORSUtil.hpp"
 #include "PORSSkin.hpp"
 
@@ -23,7 +23,7 @@ using namespace std;
 class PORSGeometry : public PORSObject
 {
 public:
-    PORSGeometry(const PORSScene &scene, const PORSElement &element);
+    PORSGeometry(uint64_t uid, const PORSElement &element);
     
     static const int UV_MAX = 4;
     
@@ -47,7 +47,7 @@ class PORSMeshGeometry : public PORSGeometry
 {
 public:
     
-    PORSMeshGeometry(const PORSScene &scene, const PORSElement &element);
+    PORSMeshGeometry(uint64_t uid, const PORSElement &element);
     
     int getVertexCount() const override
     {

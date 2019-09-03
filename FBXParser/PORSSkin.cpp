@@ -8,7 +8,7 @@
 
 #include "PORSSkin.hpp"
 
-PORSSkin::PORSSkin(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
+PORSSkin::PORSSkin(uint64_t uid, const PORSElement &element):PORSObject(uid, element)
 {
      mType = SKIN;
     

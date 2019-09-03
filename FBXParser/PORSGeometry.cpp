@@ -111,14 +111,14 @@ int getTriCountFromPoly(const vector<int>& indices, int *index)
 }
 
 
-PORSGeometry::PORSGeometry(const PORSScene &scene, const PORSElement &element):
-PORSObject(0, element) //默认id先传入0
+PORSGeometry::PORSGeometry(uint64_t uid, const PORSElement &element):
+PORSObject(uid, element) //默认id先传入0
 {
     
 }
 
-PORSMeshGeometry::PORSMeshGeometry(const PORSScene &scene, const PORSElement &element):
-PORSGeometry(scene, element)
+PORSMeshGeometry::PORSMeshGeometry(uint64_t uid, const PORSElement &element):
+PORSGeometry(uid, element)
 {
     assert(element.mProperty);
     mType = GEOMETRY;

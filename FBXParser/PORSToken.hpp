@@ -24,6 +24,7 @@ public:
     int64_t toI64();
     float toFloat();
     int toInt();
+    double toDouble();
     bool compareWithString(const string str);
     string toString();
     

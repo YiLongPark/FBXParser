@@ -13,15 +13,16 @@
 #include <iostream>
 
 #include "PORSObject.hpp"
-#include "PORSScene.hpp"
+//#include "PORSScene.hpp"
 #include "PORSUtil.hpp"
+#include "PORSElement.hpp"
 
 using namespace std;
 
 class PORSTexture : public PORSObject
 {
 public:
-    PORSTexture(const PORSScene &scene, const PORSElement &element);
+    PORSTexture(uint64_t uid, const PORSElement &element);
     ~PORSTexture();
     
 public:

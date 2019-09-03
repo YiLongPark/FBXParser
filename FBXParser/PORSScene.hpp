@@ -14,11 +14,21 @@
 #include <vector>
 #include <unordered_map>
 
+
 #include "PORSConnection.hpp"
 #include "PORSTakeInfo.hpp"
 #include "PORSElement.hpp"
 #include "PORSObject.hpp"
 #include "PORSGlobalSettings.hpp"
+
+#include "PORSMesh.hpp"
+#include "PORSSkin.hpp"
+#include "PORSMaterial.hpp"
+#include "PORSGeometry.hpp"
+#include "PORSCluster.hpp"
+#include "PORSAnimationStack.hpp"
+#include "PORSAnimationCurve.hpp"
+
 
 using namespace std;
 
@@ -42,6 +52,16 @@ public:
     vector<PORSTakeInfo> mTakeInfo;
     unordered_map<uint64_t, LazyObject> mObjectMap;
     PORSGlobalSettings *mGolbalSettings;
+    
+    //将解析出来的数据临时分类存储（为组合之前）
+    vector<PORSMesh *> mMeshes;
+    vector<PORSSkin *> mSkin;
+    vector<PORSMaterial *> mMaterial;
+    vector<PORSMeshGeometry *> mGeometry;
+    vector<PORSCluster* > mCluster;
+    vector<PORSAnimationLayer *> mAnimationLayer;
+    vector<PORSAnimationCurveNode *> mAnimationCurveNode;
+    vector<PORSAnimationStack *> mAnimationStack;
     
 };
 #endif /* PORSScene_hpp */

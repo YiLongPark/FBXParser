@@ -13,7 +13,7 @@
 #include <iostream>
 
 #include "PORSObject.hpp"
-#include "PORSScene.hpp"
+//#include "PORSScene.hpp"
 #include "PORSElement.hpp"
 #include "PORSUtil.hpp"
 
@@ -22,7 +22,7 @@ using namespace std;
 class PORSNodeAttribute : public PORSObject
 {
 public:
-    PORSNodeAttribute(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
+    PORSNodeAttribute(uint64_t uid, const PORSElement &element):PORSObject(uid, element)
     {
         mType = NODE_ATTRIBUTE;
         
@@ -49,10 +49,12 @@ public:
 class PORSLimbNode: public PORSObject
 {
 public:
-    PORSLimbNode(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
+    PORSLimbNode(uint64_t uid, const PORSElement &element):PORSObject(uid, element)
     {
+        mName = element.mProperty->mNext->mToken.toString();
         mType = LIMB_NODE;
         mIsNode = true;
+      
     }
 
     ~PORSLimbNode()
@@ -65,10 +67,11 @@ public:
 class PORSLight: public PORSObject
 {
 public:
-    PORSLight(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
+    PORSLight(uint64_t uid, const PORSElement &element):PORSObject(uid, element)
     {
         mType = LIGHT_NODE;
         mIsNode = true;
+        
     }
     
     ~PORSLight()
@@ -81,7 +84,7 @@ public:
 class PORSNullNode: public PORSObject
 {
 public:
-    PORSNullNode(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
+    PORSNullNode(uint64_t uid, const PORSElement &element):PORSObject(uid, element)
     {
         mType = NULL_NODE;
         mIsNode = true;
@@ -97,7 +100,7 @@ public:
 class PORSMESH: public PORSObject
 {
 public:
-    PORSMESH(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
+    PORSMESH(uint64_t uid, const PORSElement &element):PORSObject(uid, element)
     {
         mType = MESH;
         mIsNode = true;

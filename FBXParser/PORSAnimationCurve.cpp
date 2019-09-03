@@ -8,7 +8,7 @@
 
 #include "PORSAnimationCurve.hpp"
 
-PORSAnimationCurve::PORSAnimationCurve(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
+PORSAnimationCurve::PORSAnimationCurve(uint64_t uid, const PORSElement &element):PORSObject(uid, element)
 {
     mType = ANIMATION_CURVE;
     
@@ -43,7 +43,7 @@ PORSAnimationCurve::~PORSAnimationCurve()
     
 }
 
-PORSAnimationCurveNode::PORSAnimationCurveNode(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
+PORSAnimationCurveNode::PORSAnimationCurveNode(uint64_t uid, const PORSElement &element):PORSObject(uid, element)
 {
     mType = ANIMATION_CURVE_NODE;
 }

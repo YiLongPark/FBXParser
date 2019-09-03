@@ -8,7 +8,7 @@
 
 #include "PORSRootNode.hpp"
 
-PORSRootNode::PORSRootNode(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
+PORSRootNode::PORSRootNode(uint64_t uid, const PORSElement &element):PORSObject(uid, element)
 {
     mType = ROOTNODE;
     mIsNode = true;

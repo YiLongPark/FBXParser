@@ -8,7 +8,7 @@
 
 #include "PORSCluster.hpp"
 
-PORSCluster::PORSCluster(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
+PORSCluster::PORSCluster(uint64_t uid, const PORSElement &element):PORSObject(uid, element)
 {
     mType = CLUSTER;
     
@@ -24,23 +24,18 @@ PORSCluster::PORSCluster(const PORSScene &scene, const PORSElement &element):POR
         PORSUtil::parseArrayRaw(*transform->mProperty, &mTransformMatrix, sizeof(mTransformMatrix));
     }
     
-   // vector<int> old_indices;
     const PORSElement *indices = PORSUtil::getRequiredElement(element, "Indexes");
     if(indices && indices->mProperty)
     {
         PORSUtil::parserBinaryArray(*indices->mProperty, &mIndices);
     }
-    
-   // vector<double> old_weights;
+
     const PORSElement *weights = PORSUtil::getRequiredElement(element, "Weights");
     if(weights &&  weights->mProperty)
     {
         PORSUtil::parserBinaryArray(*weights->mProperty, &mWeights);
     }
     
-//    mIndices.reserve(old_indices.size());
-//    mWeights.reserve(old_weights.size());
-
 }
 
 PORSCluster::~PORSCluster()

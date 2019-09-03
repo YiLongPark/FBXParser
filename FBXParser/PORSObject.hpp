@@ -14,6 +14,7 @@
 
 #include "PORSElement.hpp"
 #include "PORSObject.hpp"
+#include "PORSUtil.hpp"
 
 using namespace std;
 
@@ -69,7 +70,7 @@ public:
     
     const uint64_t getID() const
     {
-        return mID;
+        return mUID;
     }
     
     ObjectType getType() const
@@ -77,14 +78,24 @@ public:
         return mType;
     }
     
+    Vector3D getLocalScaling();
+    Vector3D getLocalRotation();
+    Vector3D getLocalTranslation();
+    
+    PORSElement *resolveProperty(const char *mark);
+    
+    Vector3D resolveVec3DProperty(const char* mark, const Vector3D &defaultValue);
+  
+    
 public:
     const PORSObject *mNodeAttribute;
     bool mIsNode;
+    string mName;
    
 protected:
     const PORSElement& mElement;
-    const uint64_t mID;
-    const string mName;
+    const uint64_t mUID;
+   
     ObjectType mType;
    
     

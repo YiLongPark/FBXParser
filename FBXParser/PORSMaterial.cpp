@@ -8,7 +8,7 @@
 
 #include "PORSMaterial.hpp"
 
-PORSMaterial::PORSMaterial(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
+PORSMaterial::PORSMaterial(uint64_t uid, const PORSElement &element):PORSObject(uid, element)
 {
     mType = MATERIAL;
 }

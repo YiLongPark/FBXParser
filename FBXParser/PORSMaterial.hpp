@@ -13,7 +13,7 @@
 #include <iostream>
 #include <map>
 
-#include "PORSObject.hpp"
+//#include "PORSObject.hpp"
 #include "PORSTexture.hpp"
 
 using namespace std;
@@ -23,7 +23,7 @@ typedef map<string, const PORSTexture*> TextureMap;
 class PORSMaterial: public PORSObject
 {
 public:
-    PORSMaterial(const PORSScene &scene, const PORSElement &element);
+    PORSMaterial(uint64_t uid, const PORSElement &element);
     ~PORSMaterial();
 public:
     

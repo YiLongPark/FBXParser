@@ -12,14 +12,14 @@
 #include <stdio.h>
 #include <iostream>
 
-#include "PORSObject.hpp"
+//#include "PORSObject.hpp"
 #include "PORSCluster.hpp"
 
 using namespace std;
 class PORSSkin: public PORSObject
 {
 public:
-    PORSSkin(const PORSScene &scene, const PORSElement &element);
+    PORSSkin(uint64_t uid, const PORSElement &element);
     ~PORSSkin();
     
 public:

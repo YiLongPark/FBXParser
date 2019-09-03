@@ -12,7 +12,8 @@
 #include <stdio.h>
 #include <iostream>
 
-#include "PORSScene.hpp"
+//#include "PORSScene.hpp"
+#include "PORSObject.hpp"
 #include "PORSElement.hpp"
 
 using namespace std;
@@ -20,7 +21,7 @@ using namespace std;
 class PORSRootNode :public PORSObject
 {
 public:
-    PORSRootNode(const PORSScene &scene, const PORSElement &element);
+    PORSRootNode(uint64_t uid, const PORSElement &element);
     
     ~PORSRootNode();
     

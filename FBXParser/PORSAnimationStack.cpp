@@ -8,7 +8,7 @@
 
 #include "PORSAnimationStack.hpp"
 
-PORSAnimationLayer::PORSAnimationLayer(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
+PORSAnimationLayer::PORSAnimationLayer(uint64_t uid, const PORSElement &element):PORSObject(uid, element)
 {
     mType = ANIMATION_LAYER;
 }
@@ -19,9 +19,11 @@ PORSAnimationLayer::~PORSAnimationLayer()
 }
 
 
-PORSAnimationStack::PORSAnimationStack(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
+PORSAnimationStack::PORSAnimationStack(uint64_t uid, const PORSElement &element):PORSObject(uid, element)
 {
+    mName = element.mProperty->mNext->mToken.toString();
     mType = ANIMATION_STACK;
+  
 }
 
 PORSAnimationStack::~PORSAnimationStack()

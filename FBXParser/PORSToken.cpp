@@ -44,6 +44,12 @@ float PORSToken::toFloat()
     return *(float*)mBegin;
 }
 
+double PORSToken::toDouble()
+{
+    assert(mEnd - mBegin == sizeof(double));
+    return *(double*)mBegin;
+}
+
 bool PORSToken::compareWithString(const string str)
 {
     const string temp = string(mBegin, mEnd);

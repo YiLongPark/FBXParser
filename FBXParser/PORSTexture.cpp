@@ -8,10 +8,8 @@
 
 #include "PORSTexture.hpp"
 
-PORSTexture::PORSTexture(const PORSScene &scene, const PORSElement &element):PORSObject(0, element)
+PORSTexture::PORSTexture(uint64_t uid,  const PORSElement &element):PORSObject(uid, element)
 {
-   // assert(element.mProperty);
-    
     mType = TEXTURE;
     
     const PORSElement *textureFileName = PORSUtil::getRequiredElement(element, "FileName");

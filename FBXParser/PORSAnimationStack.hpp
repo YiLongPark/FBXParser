@@ -13,8 +13,8 @@
 #include <iostream>
 #include <vector>
 
-#include "PORSObject.hpp"
-#include "PORSScene.hpp"
+//#include "PORSObject.hpp"
+//#include "PORSScene.hpp"
 #include "PORSAnimationCurve.hpp"
 
 using namespace std;
@@ -23,7 +23,7 @@ class PORSAnimationLayer:public PORSObject
 {
     
 public:
-    PORSAnimationLayer(const PORSScene &scene, const PORSElement &element);
+    PORSAnimationLayer(uint64_t uid, const PORSElement &element);
     ~PORSAnimationLayer();
     
 public:
@@ -33,7 +33,7 @@ public:
 class PORSAnimationStack:public PORSObject
 {
 public:
-    PORSAnimationStack(const PORSScene &scene, const PORSElement &element);
+    PORSAnimationStack(uint64_t uid, const PORSElement &element);
     ~PORSAnimationStack();
     
 public:

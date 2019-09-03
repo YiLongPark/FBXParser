@@ -11,9 +11,10 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <vector>
 
 #include "PORSObject.hpp"
-#include "PORSScene.hpp"
+//#include "PORSScene.hpp"
 #include "PORSUtil.hpp"
 
 
@@ -22,7 +23,7 @@ using namespace std;
 class PORSCluster: public PORSObject
 {
 public:
-    PORSCluster(const PORSScene &scene, const PORSElement &element);
+    PORSCluster(uint64_t uid, const PORSElement &element);
     ~PORSCluster();
     
 public:

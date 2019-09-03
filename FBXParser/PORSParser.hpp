@@ -24,7 +24,7 @@
 #include "PORSAnimationCurve.hpp"
 #include "PORSAnimationStack.hpp"
 #include "PORSNodeAttribute.hpp"
-#include "PORSModel.hpp"
+#include "PORSMesh.hpp"
 #include "PORSToken.hpp"
 #include "PORSRootNode.hpp"
 

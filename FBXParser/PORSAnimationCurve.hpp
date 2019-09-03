@@ -15,7 +15,7 @@
 #include <map>
 
 #include "PORSObject.hpp"
-#include "PORSScene.hpp"
+//#include "PORSScene.hpp"
 #include "PORSUtil.hpp"
 
 using namespace std;
@@ -23,7 +23,7 @@ using namespace std;
 class PORSAnimationCurve: public PORSObject
 {
 public:
-    PORSAnimationCurve(const PORSScene &scene, const PORSElement &element);
+    PORSAnimationCurve(uint64_t uid, const PORSElement &element);
     ~PORSAnimationCurve();
     
 public:
@@ -39,7 +39,7 @@ typedef map<string, const PORSAnimationCurve*> AnimationCurveMap;
 class PORSAnimationCurveNode: public PORSObject
 {
 public:
-    PORSAnimationCurveNode(const PORSScene &scene, const PORSElement &element);
+    PORSAnimationCurveNode(uint64_t uid, const PORSElement &element);
     ~PORSAnimationCurveNode();
     
 public:
