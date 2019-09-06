@@ -37,6 +37,9 @@
 		7CBA14A222F2D277002E16F3 /* head.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA149D22F2D277002E16F3 /* head.jpg */; };
 		7CBA14A322F2D277002E16F3 /* headeye.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA149E22F2D277002E16F3 /* headeye.jpg */; };
 		7CBA14A422F2D277002E16F3 /* headmouth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7CBA149F22F2D277002E16F3 /* headmouth.jpg */; };
+		7CBB56242320A2B400E8517E /* Matrix4x4t.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CBB56222320A2B400E8517E /* Matrix4x4t.cpp */; };
+		7CBB562B2321067A00E8517E /* Matrix3x3t.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CBB56292321067A00E8517E /* Matrix3x3t.cpp */; };
+		7CBB562F23210AE300E8517E /* Quaterniont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CBB562D23210AE300E8517E /* Quaterniont.cpp */; };
 		7CD9DCE222F7FA5600BB6BFD /* PORSOptionalError.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9DCE022F7FA5600BB6BFD /* PORSOptionalError.cpp */; };
 		7CD9DCE522F805DE00BB6BFD /* PORSConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9DCE322F805DE00BB6BFD /* PORSConnection.cpp */; };
 		7CD9DCE822F8435F00BB6BFD /* PORSTakeInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7CD9DCE622F8435F00BB6BFD /* PORSTakeInfo.cpp */; };
@@ -111,6 +114,12 @@
 		7CBA149D22F2D277002E16F3 /* head.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = head.jpg; sourceTree = "<group>"; };
 		7CBA149E22F2D277002E16F3 /* headeye.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = headeye.jpg; sourceTree = "<group>"; };
 		7CBA149F22F2D277002E16F3 /* headmouth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = headmouth.jpg; sourceTree = "<group>"; };
+		7CBB56222320A2B400E8517E /* Matrix4x4t.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix4x4t.cpp; sourceTree = "<group>"; };
+		7CBB56232320A2B400E8517E /* Matrix4x4t.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Matrix4x4t.hpp; sourceTree = "<group>"; };
+		7CBB56292321067A00E8517E /* Matrix3x3t.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix3x3t.cpp; sourceTree = "<group>"; };
+		7CBB562A2321067A00E8517E /* Matrix3x3t.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Matrix3x3t.hpp; sourceTree = "<group>"; };
+		7CBB562D23210AE300E8517E /* Quaterniont.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Quaterniont.cpp; sourceTree = "<group>"; };
+		7CBB562E23210AE300E8517E /* Quaterniont.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Quaterniont.hpp; sourceTree = "<group>"; };
 		7CD9DCE022F7FA5600BB6BFD /* PORSOptionalError.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSOptionalError.cpp; sourceTree = "<group>"; };
 		7CD9DCE122F7FA5600BB6BFD /* PORSOptionalError.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSOptionalError.hpp; sourceTree = "<group>"; };
 		7CD9DCE322F805DE00BB6BFD /* PORSConnection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSConnection.cpp; sourceTree = "<group>"; };
@@ -166,6 +175,7 @@
 		7CBA146E22F2B951002E16F3 /* FBXParser */ = {
 			isa = PBXGroup;
 			children = (
+				7CBB56212320A28F00E8517E /* Math */,
 				E7595A402301A00800103634 /* PORSException.cpp */,
 				E7595A412301A00800103634 /* PORSException.hpp */,
 				7C3D88FB22FC1EB50002FC39 /* miniz.c */,
@@ -249,6 +259,19 @@
 				7CBA149F22F2D277002E16F3 /* headmouth.jpg */,
 			);
 			path = head3;
+			sourceTree = "<group>";
+		};
+		7CBB56212320A28F00E8517E /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				7CBB56222320A2B400E8517E /* Matrix4x4t.cpp */,
+				7CBB56232320A2B400E8517E /* Matrix4x4t.hpp */,
+				7CBB56292321067A00E8517E /* Matrix3x3t.cpp */,
+				7CBB562A2321067A00E8517E /* Matrix3x3t.hpp */,
+				7CBB562D23210AE300E8517E /* Quaterniont.cpp */,
+				7CBB562E23210AE300E8517E /* Quaterniont.hpp */,
+			);
+			path = Math;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,6 +386,7 @@
 				7C987B2323014BCB0006D9E1 /* PORSUtil.cpp in Sources */,
 				7C3D88FA22FBFEA20002FC39 /* PORSGeometry.cpp in Sources */,
 				7C8DBBCB2303F28E00B3926A /* PORSCluster.cpp in Sources */,
+				7CBB562F23210AE300E8517E /* Quaterniont.cpp in Sources */,
 				7C9F4398230509B3001BCDFF /* PORSAnimationStack.cpp in Sources */,
 				7C940D1222F91E7D007408B3 /* PORSObject.cpp in Sources */,
 				E7595A3922F6D54500103634 /* PORSProperty.cpp in Sources */,
@@ -372,6 +396,7 @@
 				7CB59A042306558C00005654 /* PORSNodeAttribute.cpp in Sources */,
 				7C987B16230135B60006D9E1 /* PORSTokenizer.cpp in Sources */,
 				E7595A3322F6C02B00103634 /* PORSElement.cpp in Sources */,
+				7CBB562B2321067A00E8517E /* Matrix3x3t.cpp in Sources */,
 				7CBA147F22F2B952002E16F3 /* main.m in Sources */,
 				7CD9DCE822F8435F00BB6BFD /* PORSTakeInfo.cpp in Sources */,
 				7C9F439B23050B84001BCDFF /* PORSAnimationCurve.cpp in Sources */,
@@ -384,6 +409,7 @@
 				7C8DBBD323042DC800B3926A /* PORSSkin.cpp in Sources */,
 				7C9683A8231E0C1300487059 /* PORSMesh.cpp in Sources */,
 				7CBA147122F2B951002E16F3 /* AppDelegate.m in Sources */,
+				7CBB56242320A2B400E8517E /* Matrix4x4t.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

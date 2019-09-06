@@ -27,6 +27,14 @@
 #include "PORSMesh.hpp"
 #include "PORSToken.hpp"
 #include "PORSRootNode.hpp"
+#include "Math/Matrix4x4t.hpp"
+#include "Math/Matrix3x3t.hpp"
+
+
+#define CONVERT_FBX_TIME(time) static_cast<double>(time) / 46186158000L
+
+#define AI_DEG_TO_RAD(x) ((x)*(float)0.0174532925)
+#define AI_RAD_TO_DEG(x) ((x)*(float)57.2957795)
 
 using namespace std;
 //using namespace Util;

@@ -68,7 +68,7 @@ Vector3D PORSObject::resolveVec3DProperty(const char* mark, const Vector3D &defa
 
 Vector3D PORSObject::getLocalScaling()
 {
-    //Vector3D defaultValue = {0,0,0};
+    
     return resolveVec3DProperty("Lcl Scaling", {0, 0, 0});
 }
 

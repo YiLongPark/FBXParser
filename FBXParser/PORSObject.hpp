@@ -15,6 +15,8 @@
 #include "PORSElement.hpp"
 #include "PORSObject.hpp"
 #include "PORSUtil.hpp"
+#include "Math/Quaterniont.hpp"
+
 
 using namespace std;
 
@@ -33,9 +35,36 @@ struct Vector2D
     double x, y;
 };
 
-struct Matrix4x4
+//struct Matrix4x4
+//{
+//    double m[16];
+//};
+
+//struct Quaternion
+//{
+//    double w, x, y, z;
+//};
+
+struct QuatKey
 {
-    double m[16];
+    double mTime;
+    Quaternion mValue;
+    
+    QuatKey(): mTime( 0.0 ) , mValue()
+    {
+        // empty
+    }
+};
+
+struct VectorKey
+{
+    double mTime;
+    Vector3D mValue;
+    
+    VectorKey(): mTime( 0.0 ), mValue()
+    {
+        // empty
+    }
 };
 
 enum ObjectType

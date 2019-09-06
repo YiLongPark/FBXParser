@@ -32,6 +32,12 @@
 
 using namespace std;
 
+typedef vector<int64_t> keyTimeList;
+typedef vector<float> keyValueList;
+
+ // key (time), value, mapto (component index)
+typedef tuple<std::shared_ptr<keyTimeList>, std::shared_ptr<keyValueList>, unsigned int> keyFrameList;
+typedef vector<keyFrameList> keyFrameArrayList;
 
 struct LazyObject
 {
