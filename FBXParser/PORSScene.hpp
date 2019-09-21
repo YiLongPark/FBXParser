@@ -14,7 +14,6 @@
 #include <vector>
 #include <unordered_map>
 
-
 #include "PORSConnection.hpp"
 #include "PORSTakeInfo.hpp"
 #include "PORSElement.hpp"

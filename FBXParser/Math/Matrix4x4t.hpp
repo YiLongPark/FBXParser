@@ -15,6 +15,11 @@
 
 #ifdef __cplusplus
 
+
+template <typename T> class Quaterniont;
+template <typename T> class Matrix3x3t;
+template <typename T> class Vector3Dt;
+
 template<typename T>
 class Matrix4x4t
 {
@@ -38,6 +43,14 @@ public:
     d1(_d1), d2(_d2), d3(_d3), d4(_d4)
     {
         
+    }
+    
+    Matrix4x4t (const Matrix3x3t<T>& m)
+    {
+        a1 = m.a1; a2 = m.a2; a3 = m.a3; a4 = static_cast<T>(0.0);
+        b1 = m.b1; b2 = m.b2; b3 = m.b3; b4 = static_cast<T>(0.0);
+        c1 = m.c1; c2 = m.c2; c3 = m.c3; c4 = static_cast<T>(0.0);
+        d1 = static_cast<T>(0.0); d2 = static_cast<T>(0.0); d3 = static_cast<T>(0.0); d4 = static_cast<T>(1.0);
     }
     
     // matrix multiplication.
@@ -70,6 +83,86 @@ public:
         return temp;
     }
     
+    inline T* operator[] (unsigned int index)
+    {
+        return &this->a1 + index * 4;
+    }
+    
+    inline const T* operator[] (unsigned int index) const
+    {
+        return &this->a1 + index * 4;
+    }
+    
+    
+    inline T Determinant() const
+    {
+        return a1*b2*c3*d4 - a1*b2*c4*d3 + a1*b3*c4*d2 - a1*b3*c2*d4
+        + a1*b4*c2*d3 - a1*b4*c3*d2 - a2*b3*c4*d1 + a2*b3*c1*d4
+        - a2*b4*c1*d3 + a2*b4*c3*d1 - a2*b1*c3*d4 + a2*b1*c4*d3
+        + a3*b4*c1*d2 - a3*b4*c2*d1 + a3*b1*c2*d4 - a3*b1*c4*d2
+        + a3*b2*c4*d1 - a3*b2*c1*d4 - a4*b1*c2*d3 + a4*b1*c3*d2
+        - a4*b2*c3*d1 + a4*b2*c1*d3 - a4*b3*c1*d2 + a4*b3*c2*d1;
+    }
+    
+//    void MatrixDecomposePart(Vector3Dt<T>& pScaling, Quaterniont<T>& pRotation, Vector3Dt<T>& pPosition, Vector3Dt<T> &vCols)
+//    {
+//
+//
+//    }
+//
+    
+    inline void Decompose(Vector3Dt<T>& pScaling, Quaterniont<T>& pRotation, Vector3Dt<T>& pPosition) const
+    {
+        
+        const Matrix4x4t<T> &_this = *this;
+        pPosition.x = _this[0][3];
+        pPosition.y = _this[1][3];
+        pPosition.z = _this[2][3];
+        
+        Vector3Dt<T> vRows[3] =
+        {
+            Vector3Dt<T>(_this[0][0], _this[1][0], _this[2][0]),
+            Vector3Dt<T>(_this[0][1], _this[1][1], _this[2][1]),
+            Vector3Dt<T>(_this[0][2], _this[1][2], _this[2][2])
+        };
+        
+        
+        //MatrixDecomposePart(pScaling, pRotation, pPosition, vCols);
+        
+        pScaling.x = vRows[0].Length();
+        pScaling.y = vRows[1].Length();
+        pScaling.z = vRows[2].Length();
+        
+        if(Determinant() < 0)
+        {
+            pScaling.x = -pScaling.x;
+            pScaling.y = -pScaling.y;
+            pScaling.z = -pScaling.z;
+        }
+        
+        if(pScaling.x)
+        {
+            vRows[0] /= pScaling.x;
+        }
+        if(pScaling.y)
+        {
+            vRows[1] /= pScaling.y;
+        }
+        if(pScaling.z)
+        {
+            vRows[2] /= pScaling.z;
+        }
+        
+        // build a 3x3 rotation matrix
+        Matrix3x3t<T> m(vRows[0].x,vRows[1].x,vRows[2].x,
+                              vRows[0].y,vRows[1].y,vRows[2].y,
+                              vRows[0].z,vRows[1].z,vRows[2].z);
+   
+        // and generate the rotation quaternion from it
+        pRotation = Quaterniont<T>(m);
+    }
+    
+
 public:
     static Matrix4x4t &RotationX(T a, Matrix4x4t &out)
     {
@@ -109,6 +202,25 @@ public:
         out = Matrix4x4t<T>();
         out.a1 = out.b2 = std::cos(a);
         out.a2 = -(out.b1 = std::sin(a));
+        return out;
+    }
+    
+    static Matrix4x4t<T>& Translation(const Vector3Dt<T> &v, Matrix4x4t<T> &out)
+    {
+        out = Matrix4x4t<T>();
+        out.a4 = v.x;
+        out.b4 = v.y;
+        out.c4 = v.z;
+        
+        return out;
+    }
+    
+    static Matrix4x4t<T>& Scaling( const Vector3Dt<T>& v, Matrix4x4t<T>& out)
+    {
+        out = Matrix4x4t<T>();
+        out.a1 = v.x;
+        out.b2 = v.y;
+        out.c3 = v.z;
         return out;
     }
     

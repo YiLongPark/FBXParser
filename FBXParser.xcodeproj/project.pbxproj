@@ -47,6 +47,8 @@
 		E7595A3622F6D38400103634 /* PORSToken.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7595A3422F6D38400103634 /* PORSToken.cpp */; };
 		E7595A3922F6D54500103634 /* PORSProperty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7595A3722F6D54500103634 /* PORSProperty.cpp */; };
 		E7595A422301A00800103634 /* PORSException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7595A402301A00800103634 /* PORSException.cpp */; };
+		E7C30B582324ECAA003DA7C6 /* Vector3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7C30B562324ECAA003DA7C6 /* Vector3D.cpp */; };
+		E7C30B5B232E3500003DA7C6 /* PORSConverter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7C30B59232E3500003DA7C6 /* PORSConverter.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +136,10 @@
 		E7595A3822F6D54500103634 /* PORSProperty.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSProperty.hpp; sourceTree = "<group>"; };
 		E7595A402301A00800103634 /* PORSException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PORSException.cpp; sourceTree = "<group>"; };
 		E7595A412301A00800103634 /* PORSException.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PORSException.hpp; sourceTree = "<group>"; };
+		E7C30B562324ECAA003DA7C6 /* Vector3D.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3D.cpp; sourceTree = "<group>"; };
+		E7C30B572324ECAA003DA7C6 /* Vector3D.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vector3D.hpp; sourceTree = "<group>"; };
+		E7C30B59232E3500003DA7C6 /* PORSConverter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PORSConverter.cpp; sourceTree = "<group>"; };
+		E7C30B5A232E3500003DA7C6 /* PORSConverter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PORSConverter.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +242,8 @@
 				7CB59A032306558C00005654 /* PORSNodeAttribute.hpp */,
 				7C9683A6231E0C1300487059 /* PORSMesh.cpp */,
 				7C9683A7231E0C1300487059 /* PORSMesh.hpp */,
+				E7C30B59232E3500003DA7C6 /* PORSConverter.cpp */,
+				E7C30B5A232E3500003DA7C6 /* PORSConverter.hpp */,
 			);
 			path = FBXParser;
 			sourceTree = "<group>";
@@ -270,6 +278,8 @@
 				7CBB562A2321067A00E8517E /* Matrix3x3t.hpp */,
 				7CBB562D23210AE300E8517E /* Quaterniont.cpp */,
 				7CBB562E23210AE300E8517E /* Quaterniont.hpp */,
+				E7C30B562324ECAA003DA7C6 /* Vector3D.cpp */,
+				E7C30B572324ECAA003DA7C6 /* Vector3D.hpp */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -386,6 +396,8 @@
 				7C987B2323014BCB0006D9E1 /* PORSUtil.cpp in Sources */,
 				7C3D88FA22FBFEA20002FC39 /* PORSGeometry.cpp in Sources */,
 				7C8DBBCB2303F28E00B3926A /* PORSCluster.cpp in Sources */,
+				E7C30B5B232E3500003DA7C6 /* PORSConverter.cpp in Sources */,
+				E7C30B582324ECAA003DA7C6 /* Vector3D.cpp in Sources */,
 				7CBB562F23210AE300E8517E /* Quaterniont.cpp in Sources */,
 				7C9F4398230509B3001BCDFF /* PORSAnimationStack.cpp in Sources */,
 				7C940D1222F91E7D007408B3 /* PORSObject.cpp in Sources */,

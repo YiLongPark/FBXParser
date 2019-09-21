@@ -16,14 +16,15 @@
 #include "PORSObject.hpp"
 #include "PORSUtil.hpp"
 #include "Math/Quaterniont.hpp"
+#include "Math/Vector3D.hpp"
 
 
 using namespace std;
 
-struct Vector3D
-{
-    double x, y ,z;
-};
+//struct Vector3D
+//{
+//    double x, y ,z;
+//};
 
 struct Vector4D
 {

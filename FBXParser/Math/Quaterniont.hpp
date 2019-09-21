@@ -66,6 +66,23 @@ public:
         }
     }
     
+    
+    inline Matrix3x3t<T> GetMatrix() const
+    {
+        Matrix3x3t<T> resMatrix;
+        resMatrix.a1 = static_cast<T>(1.0) - static_cast<T>(2.0) * (y * y + z * z);
+        resMatrix.a2 = static_cast<T>(2.0) * (x * y - z * w);
+        resMatrix.a3 = static_cast<T>(2.0) * (x * z + y * w);
+        resMatrix.b1 = static_cast<T>(2.0) * (x * y + z * w);
+        resMatrix.b2 = static_cast<T>(1.0) - static_cast<T>(2.0) * (x * x + z * z);
+        resMatrix.b3 = static_cast<T>(2.0) * (y * z - x * w);
+        resMatrix.c1 = static_cast<T>(2.0) * (x * z - y * w);
+        resMatrix.c2 = static_cast<T>(2.0) * (y * z + x * w);
+        resMatrix.c3 = static_cast<T>(1.0) - static_cast<T>(2.0) * (x * x + y * y);
+        
+        return resMatrix;
+    }
+    
 public:
     T w, x, y, z;
     

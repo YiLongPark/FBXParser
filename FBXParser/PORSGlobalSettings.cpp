@@ -41,13 +41,13 @@ PORSGlobalSettings::PORSGlobalSettings(const PORSElement &root)
                         get_property("CoordAxis", CoordAxis, int);
                         get_property("CoordAxisSign", CoordAxisSign, int);
                         get_property("OriginalUpAxis", OriginalUpAxis, int);
-                        get_property("OriginalUpAxisSign", OriginalUpAxisSign, int);
-                        get_property("UnitScaleFactor", UnitScaleFactor, float);
+                        get_property("OriginalUpAxisSign", OriginalUpAxisSign, int);  //获取的数据存在疑问
+                        get_property("UnitScaleFactor", UnitScaleFactor, float);      //获取的数据存在疑问
                         get_property("OriginalUnitScaleFactor", OriginalUnitScaleFactor, float);
                         get_property("TimeSpanStart", TimeSpanStart, uint64_t);
                         get_property("TimeSpanStop", TimeSpanStop, uint64_t);
                         get_property("TimeMode", TimeMode, FrameRate);
-                        get_property("CustomFrameRate", CustomFrameRate, float);
+                        get_property("CustomFrameRate", CustomFrameRate, float);      //获取的数据存在疑问
                     }
                     break;
                 }
