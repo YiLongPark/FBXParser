@@ -171,6 +171,8 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
 {
     const PORSElement *objsElement = PORSUtil::getRequiredElement(root, "Objects");
     
+   // const PORSElement *definitionsElement = PORSUtil::getRequiredElement(root, "Definitions");
+    
     if(!objsElement)
     {
         return false;

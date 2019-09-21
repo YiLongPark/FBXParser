@@ -16,6 +16,7 @@
 #include "Math/Matrix3x3t.hpp"
 #include "Math/Vector3D.hpp"
 #include "PORSGlobalSettings.hpp"
+#include "PORSAnimation.hpp"
 
 #define CONVERT_FBX_TIME(time) static_cast<double>(time) / 46186158000L
 
@@ -29,7 +30,7 @@ public:
     ~PORSConverter();
     
     void FrameRateFromSetting(FrameRate fp, double customFPS);
-    void GenerateNodeAnimations(PORSScene *scene);
+    void GenerateAnimations(PORSScene *scene);
     void ConverTransformOrder_TRStoSRT(QuatKey *out_quat,
                                        VectorKey *out_scale,
                                        VectorKey *out_translation,
@@ -44,7 +45,8 @@ public:
                                        const Vector3D &def_rotation);
     
 private:
-    double mAnimFPS;
+    double mAnimationFPS;
+    vector<PORSAnimation *> mAnimations;
     
 };
 

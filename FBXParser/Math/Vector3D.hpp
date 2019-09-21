@@ -17,7 +17,7 @@ class Vector3Dt
 {
 public:
     Vector3Dt(){}
-    Vector3Dt(T _x, T _y, T _z): x(_x), y(_y), z(_y){}
+    Vector3Dt(T _x, T _y, T _z): x(_x), y(_y), z(_z){}
     
     inline T SquareLength() const
     {

@@ -86,11 +86,24 @@ public:
     inline T* operator[] (unsigned int index)
     {
         return &this->a1 + index * 4;
+//        if(index > 3)
+//        {
+//            return NULL;
+//        }
+//
+//        switch (index) {
+//            case 0:
+//                return &this->a1;
+//                break;
+//
+//            default:
+//                break;
+//        }
     }
     
     inline const T* operator[] (unsigned int index) const
     {
-        return &this->a1 + index * 4;
+       return  &this->a1 + index * 4;
     }
     
     
@@ -104,16 +117,8 @@ public:
         - a4*b2*c3*d1 + a4*b2*c1*d3 - a4*b3*c1*d2 + a4*b3*c2*d1;
     }
     
-//    void MatrixDecomposePart(Vector3Dt<T>& pScaling, Quaterniont<T>& pRotation, Vector3Dt<T>& pPosition, Vector3Dt<T> &vCols)
-//    {
-//
-//
-//    }
-//
-    
     inline void Decompose(Vector3Dt<T>& pScaling, Quaterniont<T>& pRotation, Vector3Dt<T>& pPosition) const
     {
-        
         const Matrix4x4t<T> &_this = *this;
         pPosition.x = _this[0][3];
         pPosition.y = _this[1][3];
@@ -125,10 +130,7 @@ public:
             Vector3Dt<T>(_this[0][1], _this[1][1], _this[2][1]),
             Vector3Dt<T>(_this[0][2], _this[1][2], _this[2][2])
         };
-        
-        
-        //MatrixDecomposePart(pScaling, pRotation, pPosition, vCols);
-        
+
         pScaling.x = vRows[0].Length();
         pScaling.y = vRows[1].Length();
         pScaling.z = vRows[2].Length();
@@ -155,8 +157,8 @@ public:
         
         // build a 3x3 rotation matrix
         Matrix3x3t<T> m(vRows[0].x,vRows[1].x,vRows[2].x,
-                              vRows[0].y,vRows[1].y,vRows[2].y,
-                              vRows[0].z,vRows[1].z,vRows[2].z);
+                        vRows[0].y,vRows[1].y,vRows[2].y,
+                        vRows[0].z,vRows[1].z,vRows[2].z);
    
         // and generate the rotation quaternion from it
         pRotation = Quaterniont<T>(m);

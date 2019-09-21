@@ -36,16 +36,6 @@ struct Vector2D
     double x, y;
 };
 
-//struct Matrix4x4
-//{
-//    double m[16];
-//};
-
-//struct Quaternion
-//{
-//    double w, x, y, z;
-//};
-
 struct QuatKey
 {
     double mTime;

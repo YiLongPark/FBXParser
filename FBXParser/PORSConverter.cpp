@@ -388,20 +388,29 @@ void PORSConverter::ConverTransformOrder_TRStoSRT(QuatKey *out_quat,
         mat *= Matrix4x4::Scaling(s, temp);
         
         mat.Decompose(s, r, t);
-        
     }
 }
 
-void PORSConverter::GenerateNodeAnimations(PORSScene *scene)
+void PORSConverter::GenerateAnimations(PORSScene *scene)
 {
     for(const PORSAnimationStack *stack : scene->mAnimationStack)
     {
+        PORSAnimation *animation = new PORSAnimation();
+        
+        double min_time = 1e10;
+        double max_time = -1e10;
+        
+        vector<PORSNodeAnimation *> nodeAnimations;
+        
         for(const PORSAnimationLayer *layer : stack->mAnimationLayerList)
         {
             for(const PORSAnimationCurveNode *node : layer->mCurveNode)
             {
+                PORSNodeAnimation *node_anim = new PORSNodeAnimation();
                 PORSLimbNode *bone = (PORSLimbNode *)node->mBone;
                 const string boneName = bone->mName;
+                
+                node_anim->mNodeName = boneName;
                 
                 Vector3D defScale = bone->getLocalScaling();
                 Vector3D defTranslate = bone->getLocalTranslation();
@@ -415,9 +424,14 @@ void PORSConverter::GenerateNodeAnimations(PORSScene *scene)
                 {
                     rotation = getKeyFrameList(node);
                 }
-                
-                double min_time = 1e10;
-                double max_time = -1e10;
+                if(!node->mBoneLinkProperty.compare("Lcl Translation"))
+                {
+                    translation = getKeyFrameList(node);
+                }
+                if(!node->mBoneLinkProperty.compare("Lcl Scaling"))
+                {
+                    scaling = getKeyFrameList(node);
+                }
                 
                 keyFrameArrayList joined;
                 joined.insert(joined.end(), scaling.begin(), scaling.end());
@@ -435,9 +449,62 @@ void PORSConverter::GenerateNodeAnimations(PORSScene *scene)
                     ConverTransformOrder_TRStoSRT(out_quat, out_scale, out_translation, scaling, translation, rotation, times, max_time, min_time, defScale, defTranslate, defRotation);
                 }
                 
+                node_anim->mNumRotationKey = static_cast<unsigned int>(times.size());
+                node_anim->mNumPositionKey = node_anim->mNumRotationKey;
+                node_anim->mNumScalingKey = node_anim->mNumRotationKey;
+                
+                node_anim->mPositionKeys = out_translation;
+                node_anim->mScalingKey = out_scale;
+                node_anim->mRotationKey = out_quat;
+                
+                assert(node_anim);
+                if(node_anim->mNumRotationKey > 0)
+                {
+                    nodeAnimations.push_back(node_anim);
+                }
+                else
+                {
+                    delete node_anim;
+                }
+                
             }
         }
+        
+        if(nodeAnimations.size() > 0)
+        {
+            animation->mNumChannel = static_cast<unsigned int>(nodeAnimations.size()) ;
+            animation->mNodeAnimationChannels = new PORSNodeAnimation* [nodeAnimations.size()];
+            std::swap_ranges(nodeAnimations.begin(), nodeAnimations.end(), animation->mNodeAnimationChannels);
+        }
+        
+        double start_time_fps = min_time;
+        double end_time_fps = max_time;
+        
+        for(unsigned int i = 0; i < animation->mNumChannel; i++)
+        {
+            PORSNodeAnimation *channel = animation->mNodeAnimationChannels[i];
+            for(int j = 0; j < channel->mNumPositionKey; j++)
+            {
+                channel->mPositionKeys[j].mTime -= start_time_fps;
+            }
+            for(int k = 0; k < channel->mNumScalingKey; k++)
+            {
+                channel->mScalingKey[k].mTime -= start_time_fps;
+            }
+            for(int m = 0; m < channel->mNumRotationKey; m++)
+            {
+                channel->mRotationKey[m].mTime -= start_time_fps;
+            }
+        }
+        
+        animation->mDuration = end_time_fps - start_time_fps;
+        animation->mTicksPerSecond = mAnimationFPS;
+        
+        mAnimations.push_back(animation);
     }
+    int i =0;
+    i++;
+
 }
 
 #pragma mark class member functions
@@ -446,7 +513,7 @@ PORSConverter::PORSConverter(PORSScene *scene)
 {
     FrameRateFromSetting(scene->mGolbalSettings->TimeMode, scene->mGolbalSettings->CustomFrameRate);
     
-    GenerateNodeAnimations(scene);
+    GenerateAnimations(scene);
 }
 
 PORSConverter::~PORSConverter()
@@ -458,48 +525,48 @@ void PORSConverter::FrameRateFromSetting(FrameRate fp, double customFPS)
 {
     switch (fp) {
         case FrameRate_DEFAULT:
-            mAnimFPS = 1.0;
+            mAnimationFPS = 1.0;
             break;
         case FrameRate_120:
-            mAnimFPS = 120.0;
+            mAnimationFPS = 120.0;
             break;
         case FrameRate_100:
-            mAnimFPS = 100.0;
+            mAnimationFPS = 100.0;
             break;
         case FrameRate_60:
-            mAnimFPS = 60.0;
+            mAnimationFPS = 60.0;
             break;
         case FrameRate_50:
-            mAnimFPS = 50.0;
+            mAnimationFPS = 50.0;
             break;
         case FrameRate_48:
-            mAnimFPS = 48.0;
+            mAnimationFPS = 48.0;
             break;
         case FrameRate_30:
         case FrameRate_30_DROP:
-            mAnimFPS = 30.0;
+            mAnimationFPS = 30.0;
             break;
         case FrameRate_NTSC_DROP_FRAME:
-            mAnimFPS = 29.9700262;
+            mAnimationFPS = 29.9700262;
             break;
         case FrameRate_PAL:
-            mAnimFPS = 25.0;
+            mAnimationFPS = 25.0;
             break;
         case FrameRate_CINEMA:
-            mAnimFPS = 24.0;
+            mAnimationFPS = 24.0;
             break;
         case FrameRate_1000:
-            mAnimFPS = 1000.0;
+            mAnimationFPS = 1000.0;
             break;
         case FrameRate_CINEMA_ND:
-            mAnimFPS = 23.976;
+            mAnimationFPS = 23.976;
             break;
         case FrameRate_CUSTOM:
-            mAnimFPS = customFPS;
+            mAnimationFPS = customFPS;
             break;
             
         default:
-            mAnimFPS = -1.0;
+            mAnimationFPS = -1.0;
             break;
     }
 }
