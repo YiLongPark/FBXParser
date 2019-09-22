@@ -16,7 +16,6 @@
 #include "Math/Matrix3x3t.hpp"
 #include "Math/Vector3D.hpp"
 #include "PORSGlobalSettings.hpp"
-#include "PORSAnimation.hpp"
 
 #define CONVERT_FBX_TIME(time) static_cast<double>(time) / 46186158000L
 
@@ -46,7 +45,6 @@ public:
     
 private:
     double mAnimationFPS;
-    vector<PORSAnimation *> mAnimations;
     
 };
 

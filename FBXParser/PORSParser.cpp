@@ -85,8 +85,8 @@ bool parseConnections(const PORSElement &root, PORSScene *sence)
 //        memcpy(&word, coChild->mProperty->mToken.mBegin, sizeof(uint32_t));
 //        //uint32_t rr= (uint32_t)coChild->mProperty->mToken.mBegin;
 //        string t = string(coChild->mProperty->mToken.mBegin, coChild->mProperty->mToken.mEnd);
-        printf("from = %llu\n", tempConnection.mFrom);
-        printf("to = %llu\n", tempConnection.mTo);
+//        printf("from = %llu\n", tempConnection.mFrom);
+//        printf("to = %llu\n", tempConnection.mTo);
         
         if(coChild->mProperty->mToken.compareWithString("OO"))
         {
@@ -196,8 +196,8 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
         
         PORSToken token = iter.second.mElement->mIDToken;
         string str = token.toString();
-        printf("this tag = %s\n", str.c_str());
-        printf("this id = %llu\n", iter.first);
+//        printf("this tag = %s\n", str.c_str());
+//        printf("this id = %llu\n", iter.first);
         
         uint64_t UID = iter.first;
         
@@ -314,7 +314,7 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
                     
                     node->mBoneLinkProperty = string(con.mProperty.mToken.mBegin, con.mProperty.mToken.mEnd);
                     
-                    printf("===%s\n", node->mBoneLinkProperty.c_str());
+                   // printf("===%s\n", node->mBoneLinkProperty.c_str());
                 }
               
             }
@@ -328,7 +328,6 @@ bool parseObjects(const PORSElement &root, PORSScene *scene)
             default:
                 break;
         }
-
 
         switch (parent->getType())
         {
@@ -477,7 +476,7 @@ PORSParser::PORSParser(const PORSElement &root, PORSScene *scene)
     
     parseGlobalSettings(root, scene);
     
-    //转换动画信息
+    //解析Animation相关信息
     PORSConverter converter(scene);
 }
 

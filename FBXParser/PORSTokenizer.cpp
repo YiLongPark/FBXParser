@@ -52,8 +52,8 @@ const PORSToken ReadString(Cursor *cursor, bool isLongString)
     const unsigned char *stringEnd = cursor->currentPosition;
     token.mEnd = stringEnd;
     
-    const string keyString = string(token.mBegin, token.mEnd);
-    
+    token.mLenght = keyLength;
+
     return token;
 }
 
@@ -125,7 +125,9 @@ PORSProperty* ReadPropertyData(Cursor *cursor)
             const PORSToken tempToken = ReadString(cursor, true);   //long string
             //property->mToken.mBegin = tempToken.mBegin;
             property->mToken.mBegin = tempToken.mBegin;
-            property->mToken.type = 333;
+            property->mToken.mEnd = tempToken.mEnd;
+            
+            property->mToken.mLenght = tempToken.mLenght;
             break;
         }
         // array of
@@ -148,7 +150,7 @@ PORSProperty* ReadPropertyData(Cursor *cursor)
     }
     
     property->mToken.mEnd = cursor->currentPosition;
-    
+
     return property;
 }
 

@@ -27,6 +27,7 @@
 #include "PORSCluster.hpp"
 #include "PORSAnimationStack.hpp"
 #include "PORSAnimationCurve.hpp"
+#include "PORSAnimation.hpp"
 
 
 using namespace std;
@@ -67,6 +68,9 @@ public:
     vector<PORSAnimationLayer *> mAnimationLayer;
     vector<PORSAnimationCurveNode *> mAnimationCurveNode;
     vector<PORSAnimationStack *> mAnimationStack;
+    
+    
+    vector<PORSAnimation *> mAnimations;
     
 };
 #endif /* PORSScene_hpp */

@@ -397,6 +397,10 @@ void PORSConverter::GenerateAnimations(PORSScene *scene)
     {
         PORSAnimation *animation = new PORSAnimation();
         
+        int64_t start_time = stack->mLocalStart;
+        int64_t stop_time = stack->mLocalStop;
+        bool has_local_startstop = start_time != 0 || stop_time != 0;
+        
         double min_time = 1e10;
         double max_time = -1e10;
         
@@ -477,8 +481,8 @@ void PORSConverter::GenerateAnimations(PORSScene *scene)
             std::swap_ranges(nodeAnimations.begin(), nodeAnimations.end(), animation->mNodeAnimationChannels);
         }
         
-        double start_time_fps = min_time;
-        double end_time_fps = max_time;
+        double start_time_fps = has_local_startstop ? (CONVERT_FBX_TIME(start_time) * mAnimationFPS) : min_time;
+        double stop_time_fps = has_local_startstop ? (CONVERT_FBX_TIME(stop_time) * mAnimationFPS) : max_time;
         
         for(unsigned int i = 0; i < animation->mNumChannel; i++)
         {
@@ -497,13 +501,12 @@ void PORSConverter::GenerateAnimations(PORSScene *scene)
             }
         }
         
-        animation->mDuration = end_time_fps - start_time_fps;
+        animation->mDuration = stop_time_fps - start_time_fps;
         animation->mTicksPerSecond = mAnimationFPS;
+        animation->mAnimationName = stack->mAnimationStackName;
         
-        mAnimations.push_back(animation);
+        scene->mAnimations.push_back(animation);
     }
-    int i =0;
-    i++;
 
 }
 
@@ -511,8 +514,10 @@ void PORSConverter::GenerateAnimations(PORSScene *scene)
 
 PORSConverter::PORSConverter(PORSScene *scene)
 {
+    //解析FPS
     FrameRateFromSetting(scene->mGolbalSettings->TimeMode, scene->mGolbalSettings->CustomFrameRate);
     
+    //解析Animation
     GenerateAnimations(scene);
 }
 

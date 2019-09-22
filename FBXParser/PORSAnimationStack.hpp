@@ -38,6 +38,10 @@ public:
     
 public:
     std::vector<const PORSAnimationLayer *> mAnimationLayerList;
+    
+    string mAnimationStackName;
+    int64_t mLocalStart;
+    int64_t mLocalStop;
 };
 
 #endif /* PORSAnimationStack_hpp */

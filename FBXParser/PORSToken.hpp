@@ -31,6 +31,6 @@ public:
 public:
     const unsigned char *mBegin;
     const unsigned char *mEnd;
-    int type;
+    int mLenght;     //为string类型存储长度
 };
 #endif /* PORSToken_hpp */
