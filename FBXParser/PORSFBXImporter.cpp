@@ -65,7 +65,7 @@ PORSScene* ReadFile(const unsigned char *data, int size)
     
     PORSParser parser(*root.getmValue(), scene.get());
     
-    return nullptr;
+    return scene.release();
 }
 
 PORSScene* PORSFBXImporter::LoadFBXFile(const char* filePath)  //加载解析FBX文件
@@ -82,10 +82,9 @@ PORSScene* PORSFBXImporter::LoadFBXFile(const char* filePath)  //加载解析FBX
     unsigned char *contents = new unsigned char[fileSize];
     fread(contents, 1, fileSize, fp);
     
-    ReadFile(contents, (int)fileSize);
+    PORSScene* scene = ReadFile(contents, (int)fileSize);
     delete[] contents;
     
-    return NULL;
-    
+    return scene;
 }
 

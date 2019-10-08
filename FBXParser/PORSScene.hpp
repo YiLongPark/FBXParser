@@ -69,7 +69,6 @@ public:
     vector<PORSAnimationCurveNode *> mAnimationCurveNode;
     vector<PORSAnimationStack *> mAnimationStack;
     
-    
     vector<PORSAnimation *> mAnimations;
     
 };

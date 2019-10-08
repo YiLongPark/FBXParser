@@ -164,6 +164,18 @@ public:
         pRotation = Quaterniont<T>(m);
     }
     
+    inline Matrix4x4t<T>& Transpose()
+    {
+        // (TReal&) don't remove, GCC complains cause of packed fields
+        std::swap( (T&)b1, (T&)a2);
+        std::swap( (T&)c1, (T&)a3);
+        std::swap( (T&)c2, (T&)b3);
+        std::swap( (T&)d1, (T&)a4);
+        std::swap( (T&)d2, (T&)b4);
+        std::swap( (T&)d3, (T&)c4);
+        return *this;
+    }
+    
 
 public:
     static Matrix4x4t &RotationX(T a, Matrix4x4t &out)

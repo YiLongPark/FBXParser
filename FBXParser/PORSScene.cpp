@@ -10,11 +10,14 @@
 
 PORSScene::PORSScene()
 {
-    
+    mGolbalSettings = NULL;
 }
 
 PORSScene::~PORSScene()
 {
-    
+    if(mGolbalSettings)
+    {
+        delete mGolbalSettings;
+    }
 }
 

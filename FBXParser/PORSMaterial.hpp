@@ -27,6 +27,9 @@ public:
     ~PORSMaterial();
 public:
     
+    ColorValue mAmbientColor;
+    ColorValue mDiffuseColor;
+    ColorValue mSpecularColor;
     TextureMap mTexture;
     
 };

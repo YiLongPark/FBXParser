@@ -21,10 +21,10 @@
 
 using namespace std;
 
-//struct Vector3D
-//{
-//    double x, y ,z;
-//};
+struct ColorValue
+{
+    double r, g ,b;
+};
 
 struct Vector4D
 {
